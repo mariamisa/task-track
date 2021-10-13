@@ -16,9 +16,9 @@ const App = () => (
         <Route exact path={DASHBOARD_PAGE}>
           <Dashboard />
         </Route>
-        <LoggedOutRoutes exact path={LOGIN_PAGE}>
+        <Route exact path={LOGIN_PAGE}>
           <Login />
-        </LoggedOutRoutes>
+        </Route>
         <Route>
           <NotFound />
         </Route>
