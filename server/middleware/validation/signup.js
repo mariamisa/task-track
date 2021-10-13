@@ -1,6 +1,6 @@
-const { object, string, ref } = require("yup");
+const { object, string, ref } = require('yup');
 
-const { boomify } = require("../../utils");
+const { boomify } = require('../../utils');
 
 const signupValidation = async (req, res, next) => {
   try {
@@ -8,19 +8,18 @@ const signupValidation = async (req, res, next) => {
       username: string()
         .matches(/^[A-Za-z]([-']?[A-Za-z]+)*( [A-Za-z]([-']?[A-Za-z]+)*)+$/, {
           message:
-            "The name must contained from two parts first name and last name.",
+            'The name must contained from two parts first name and last name.',
         })
         .required(),
-      email: string().email().required(),
       password: string()
-        .min(8, "Password must be at least 8 char")
-        .required("Password is required"),
+        .min(8, 'Password must be at least 8 char')
+        .required('Password is required'),
 
       passwordConfirmation: string()
         .required()
-        .oneOf([ref("password"), null], "Passwords must match"),
+        .oneOf([ref('password'), null], 'Passwords must match'),
       mobile: string().min(9).required(),
-      location: string(),
+      country: string(),
     });
 
     await signupSchema.validate(req.body, {
