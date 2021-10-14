@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const LayoutPage = ({ children }) => (
-    <>
-      <h1>hi from layout page</h1>
-      {children}
-    </>
+  <>
+    <h1>hi from layout page</h1>
+    {children}
+  </>
 );
 
 LayoutPage.propTypes = {

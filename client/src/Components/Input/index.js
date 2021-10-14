@@ -7,14 +7,7 @@ import './style.css';
 
 const CommonInput = ({ handelChange, className, type, ...rest }) => {
   const InputType = type === 'password' ? Input.Password : Input;
-  return (
-    <InputType
-      onChange={handelChange}
-      type={type}
-      className={className}
-      {...rest}
-    />
-  );
+  return <InputType onChange={handelChange} type={type} className={className} {...rest} />;
 };
 
 CommonInput.propTypes = {

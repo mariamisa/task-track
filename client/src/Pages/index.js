@@ -3,6 +3,4 @@ import Login from './Login';
 import Layout from './Layout';
 import NotFound from './NotFound';
 
-export {
-  Dashboard, Login, Layout, NotFound,
-};
+export { Dashboard, Login, Layout, NotFound };
