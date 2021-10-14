@@ -23,7 +23,7 @@ CREATE TABLE tasks_users (
     task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL UNIQUE,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deadline TIMESTAMP,
-    visibality boolean DEFAULT false,
+    visibility boolean DEFAULT false,
     status VARCHAR(55) NOT NULL,
     check(status in ('done', 'cancled', 'onwork'))
 );
@@ -45,6 +45,6 @@ CREATE TABLE sitings (
     notification_to_send TIMESTAMP
 );
 
-insert into users(username,password,mobile,country,permission,job_title) values ('admin','059000000','123456789','gaza',Array['{"view":false,"add":false,"edit":false,"delete":false}'],'admin');
+insert into users(username,password,mobile,country,permission,job_title) values ('admin','059000000','123456789','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
 
 COMMIT;
