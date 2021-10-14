@@ -23,6 +23,7 @@ CREATE TABLE tasks_users (
     task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL UNIQUE,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deadline TIMESTAMP,
+    visibality boolean DEFAULT false,
     status VARCHAR(55) NOT NULL,
     check(status in ('done', 'cancled', 'onwork'))
 );
