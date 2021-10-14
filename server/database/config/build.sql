@@ -9,7 +9,7 @@ CREATE TABLE users (
     permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     attatch VARCHAR(55),
     avatar TEXT,
-    job_title VARCHAR(255) NOT NULL
+    job_title VARCHAR(255)
 );
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
@@ -44,7 +44,6 @@ CREATE TABLE sitings (
     notification_to_send TIMESTAMP
 );
 
--- insert into users values (1,'mariam','0597180930','123456789','gaza',ARRAY['admin','user'],'hhhhhh','hhhhhhh','admin');
-
+insert into users(username,password,mobile,country,permission,job_title) values ('admin','059000000','123456789','gaza',Array['{"view":false,"add":false,"edit":false,"delete":false}'],'admin');
 
 COMMIT;

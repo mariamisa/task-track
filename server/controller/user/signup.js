@@ -8,12 +8,8 @@ const { promiseJWT, boomify } = require('../../utils');
 const signupController = async (req, res, next) => {
   try {
     const { mobile, password, username } = req.body;
-
-    const { rows } = await getUserByMobile({
-      mobile,
-    });
+    const { rows } = await getUserByMobile({ mobile });
     const [checkedUser] = rows;
-
     if (checkedUser) {
       throw boomify(409, 'User already exist.');
     }
