@@ -1,13 +1,15 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+/* eslint-disable react/no-unescaped-entities */
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { DASHBOARD_PAGE, LOGIN_PAGE } from "../Utils/routes.constant";
+import { DASHBOARD_PAGE, LOGIN_PAGE } from '../Utils/routes.constant';
 
-import { LoggedOutRoutes, PrivateRoutes } from "./Routes";
+// import { LoggedOutRoutes, PrivateRoutes } from './Routes';
 
-import { Dashboard, Login, Layout, NotFound } from "../Pages";
+// eslint-disable-next-line no-unused-vars
+import { Dashboard, Login, Layout, NotFound } from '../Pages';
 
-import "./style.css";
+import './style.css';
 
 const App = () => (
   <div className="App">
