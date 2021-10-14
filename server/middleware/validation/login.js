@@ -5,7 +5,7 @@ const { boomify } = require('../../utils');
 const signinValidation = async (req, res, next) => {
   try {
     const signinSchema = object().shape({
-      mobile: string().mobile().required(),
+      mobile: string().required(),
       password: string()
         .min(8, 'Password must be at least 8 char')
         .required('Password is required'),

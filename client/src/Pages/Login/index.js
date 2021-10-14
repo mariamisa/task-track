@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-    Copyright © 
+    Copyright ©
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
       </Link>
@@ -50,13 +50,17 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{
+            m: 1, bgcolor: 'secondary.main'
+          }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{
+            mt: 1
+          }}>
             <TextField
               margin="normal"
               required
@@ -85,7 +89,9 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{
+                mt: 3, mb: 2
+              }}
             >
               Sign In
             </Button>
@@ -103,7 +109,9 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{
+          mt: 8, mb: 4
+        }} />
       </Container>
     </ThemeProvider>
   );

@@ -1,4 +1,3 @@
-
 // import React, { useContext } from 'react';
 // import { Redirect, Route } from 'react-router-dom';
 
@@ -15,6 +14,5 @@
 //   }
 //   return <Redirect to='/' />;
 // }
-
 
 // export default PrivateRoute;
