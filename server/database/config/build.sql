@@ -47,6 +47,6 @@ CREATE TABLE sitings (
     notification_to_send TIMESTAMP
 );
 
-insert into users(username,password,mobile,country,permission,job_title) values ('admin','059000000','123456789','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
+insert into users(username,password,mobile,country,permission,job_title) values ('admin','$2b$10$npJSSfBYrXJSDlxowSi4Z.iEelfDM.Y1PN11HWY3hTuAUCoFkLZb6','059000000','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
 
 COMMIT;

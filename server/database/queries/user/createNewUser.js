@@ -9,7 +9,7 @@ const createNewUser = ({
   jobTitle,
 }) => {
   const sql = {
-    text: 'INSERT INTO users (username,mobile, password, country,avatar,job_title) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;',
+    text: 'INSERT INTO users (username,mobile, password, country,avatar,job_title) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id,permission;',
     values: [username,
       mobile,
       password,
