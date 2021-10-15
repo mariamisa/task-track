@@ -18,13 +18,16 @@ const signupController = async (req, res, next) => {
       throw boomify(409, 'User not exist.');
     }
 
-    const { id, username, password: userPassword } = checkedUser;
-
+    const {
+      id, username, password: userPassword, permission,
+    } = checkedUser;
+    const permissionObject = JSON.parse(permission[0]);
     const isPassword = await compare(password, userPassword);
     if (!isPassword) throw boomify(400, 'Invalid mobile/password.');
     const token = await promiseJWT(sign, {
       id,
       username,
+      permission: permissionObject,
     });
 
     res.status(200).cookie('token', token).json({

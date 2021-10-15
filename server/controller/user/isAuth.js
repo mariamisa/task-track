@@ -12,7 +12,9 @@ const isAuthController = async (req, res, next) => {
       country,
       avatar,
       jobTitle,
+      permission,
     }] = rows;
+
     return res.json({
       statusCode: 200,
       data: {
@@ -22,6 +24,7 @@ const isAuthController = async (req, res, next) => {
         avatar,
         mobile,
         jobTitle,
+        permission,
       },
     });
   } catch (error) {
