@@ -15,7 +15,9 @@ CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
     protocol VARCHAR(255),
     attatch VARCHAR(255),
-    comments VARCHAR(255)
+    comments VARCHAR(255),
+    type VARCHAR(55) DEFAULT 'normal',
+    check(type in ('normal', 'settion', 'other'))
 );
 CREATE TABLE tasks_users (
     id SERIAL PRIMARY KEY,
