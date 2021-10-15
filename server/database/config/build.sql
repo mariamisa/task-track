@@ -13,8 +13,8 @@ CREATE TABLE users (
 );
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
-    protocol VARCHAR(255),
-    attatch VARCHAR(255),
+    protocol VARCHAR(255) NOT NULL,
+    attatch VARCHAR(255) NOT NULL,
     comments VARCHAR(255),
     type VARCHAR(55) DEFAULT 'normal',
     check(type in ('normal', 'settion', 'other'))

@@ -8,6 +8,12 @@ const {
   updatePermissionController,
 } = require('./user');
 
+const {
+  getTasks,
+  addTask,
+  getUserTasks,
+} = require('./tasks');
+
 module.exports = {
   clientError,
   serverError,
@@ -16,4 +22,7 @@ module.exports = {
   isAuthController,
   logoutController,
   updatePermissionController,
+  getTasks,
+  addTask,
+  getUserTasks,
 };
