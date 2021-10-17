@@ -1,5 +1,5 @@
 BEGIN;
-DROP TABLE IF EXISTS users,tasks,tasks_users,visits,sitings, CASCADE;
+DROP TABLE IF EXISTS users,tasks,tasks_users,comments,visits,sitings, CASCADE;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(55) NOT NULL,
@@ -15,19 +15,25 @@ CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
     protocol VARCHAR(255) NOT NULL,
     attatch VARCHAR(255) NOT NULL,
-    comments VARCHAR(255),
     type VARCHAR(55) DEFAULT 'normal',
     check(type in ('normal', 'settion', 'other'))
+);
+CREATE TABLE comments(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL UNIQUE,
+    task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL UNIQUE,
+    comment VARCHAR(255)
 );
 CREATE TABLE tasks_users (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL UNIQUE,
     task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL UNIQUE,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    deadline TIMESTAMP,
+    deadline TIMESTAMP NOT NULL,
     visibility boolean DEFAULT false,
-    status VARCHAR(55) NOT NULL,
-    check(status in ('done', 'cancled', 'onwork'))
+    status VARCHAR(55) NOT NULL DEFAULT 'onwork',
+    check(status in ('done', 'cancled', 'onwork')),
+    CONSTRAINT UC_user_task UNIQUE (user_id, task_id)
 );
 CREATE TABLE visits (
     id SERIAL PRIMARY KEY,

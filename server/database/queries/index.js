@@ -2,7 +2,10 @@ const {
   createNewUser, getUserByMobile, getUserById, updateUserPermission,
 } = require('./user');
 
-const { getAllTasks, getTasksByUserId, addNewTask } = require('./tasks');
+const {
+  getAllTasks, addNewTask, deleteTaskQuery, updateTaskQuery,
+} = require('./tasks');
+const { getTasksByUserId, addUserTaskQuery, updateUserTask } = require('./user_task');
 
 module.exports = {
   createNewUser,
@@ -12,4 +15,8 @@ module.exports = {
   getAllTasks,
   getTasksByUserId,
   addNewTask,
+  deleteTaskQuery,
+  updateTaskQuery,
+  addUserTaskQuery,
+  updateUserTask,
 };

@@ -11,8 +11,14 @@ const {
 const {
   getTasks,
   addTask,
-  getUserTasks,
+  deleteTask,
+  updateTask,
 } = require('./tasks');
+const {
+  getUserTasks,
+  addUserTask,
+  updateUserTask,
+} = require('./user_task');
 
 module.exports = {
   clientError,
@@ -25,4 +31,8 @@ module.exports = {
   getTasks,
   addTask,
   getUserTasks,
+  deleteTask,
+  updateTask,
+  addUserTask,
+  updateUserTask,
 };
