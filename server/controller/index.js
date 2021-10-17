@@ -18,6 +18,7 @@ const {
   getUserTasks,
   addUserTask,
   updateUserTask,
+  deleteUserTask,
 } = require('./user_task');
 
 module.exports = {
@@ -35,4 +36,5 @@ module.exports = {
   updateTask,
   addUserTask,
   updateUserTask,
+  deleteUserTask,
 };

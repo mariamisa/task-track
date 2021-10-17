@@ -5,7 +5,9 @@ const {
 const {
   getAllTasks, addNewTask, deleteTaskQuery, updateTaskQuery,
 } = require('./tasks');
-const { getTasksByUserId, addUserTaskQuery, updateUserTask } = require('./user_task');
+const {
+  getTasksByUserId, addUserTaskQuery, updateUserTask, deleteUserTaskQuery,
+} = require('./user_task');
 
 module.exports = {
   createNewUser,
@@ -19,4 +21,5 @@ module.exports = {
   updateTaskQuery,
   addUserTaskQuery,
   updateUserTask,
+  deleteUserTaskQuery,
 };
