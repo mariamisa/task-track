@@ -9,6 +9,8 @@ const {
   getTasksByUserId, addUserTaskQuery, updateUserTask, deleteUserTaskQuery,
 } = require('./user_task');
 
+const { getAllVisits, getUserVisits, addNewVisit } = require('./visits');
+
 module.exports = {
   createNewUser,
   getUserByMobile,
@@ -22,4 +24,7 @@ module.exports = {
   addUserTaskQuery,
   updateUserTask,
   deleteUserTaskQuery,
+  getAllVisits,
+  getUserVisits,
+  addNewVisit,
 };

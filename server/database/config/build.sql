@@ -20,14 +20,14 @@ CREATE TABLE tasks (
 );
 CREATE TABLE comments(
     id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL UNIQUE,
-    task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL UNIQUE,
+    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL,
+    task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL,
     comment VARCHAR(255)
 );
 CREATE TABLE tasks_users (
     id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL UNIQUE,
-    task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL UNIQUE,
+    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL ,
+    task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL ,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deadline TIMESTAMP NOT NULL,
     visibility boolean DEFAULT false,
@@ -36,15 +36,16 @@ CREATE TABLE tasks_users (
     CONSTRAINT UC_user_task UNIQUE (user_id, task_id)
 );
 CREATE TABLE visits (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL UNIQUE,
+    id SERIAL PRIMARY KEY UNIQUE,
+    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     from_country VARCHAR(55),
     to_country VARCHAR(255),
     location VARCHAR(255),
     km_number VARCHAR(255),
-    status VARCHAR(55) NOT NULL,
-    check(status in ('done', 'cancled', 'pending'))
+    status VARCHAR(55) DEFAULT 'pending',
+    check(status in ('done', 'canceled', 'pending')),
+    CONSTRAINT UC_user_visit UNIQUE (user_id,from_country,to_country)
 );
 CREATE TABLE sitings (
     id SERIAL PRIMARY KEY,
