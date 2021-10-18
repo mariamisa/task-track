@@ -16,7 +16,7 @@ const addVisit = async (req, res, next) => {
     });
   } catch (error) {
     if (error.constraint === 'uc_user_visit') {
-      next(boomify(400, 'you already add this visit'));
+      next(boomify(400, 'you already add this visits'));
     }
     next(error);
   }

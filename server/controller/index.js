@@ -21,7 +21,9 @@ const {
   deleteUserTask,
 } = require('./user_task');
 
-const { getVisits, getUserVisits, addVisit } = require('./visits');
+const {
+  getVisits, getUserVisits, addVisit, updateVisit, deleteVisit,
+} = require('./visits');
 
 module.exports = {
   clientError,
@@ -42,4 +44,6 @@ module.exports = {
   getVisits,
   getUserVisits,
   addVisit,
+  updateVisit,
+  deleteVisit,
 };
