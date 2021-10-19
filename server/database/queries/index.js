@@ -1,16 +1,33 @@
 const {
-  createNewUser, getUserByMobile, getUserById, updateUserPermission,
+  createNewUser,
+  getUserByMobile,
+  getUserById,
+  updateUserPermission,
+  getUserPermission,
+  updateTaskPermission,
+  updateVisitPermission,
+  updateSittingPermission,
 } = require('./user');
 
 const {
-  getAllTasks, addNewTask, deleteTaskQuery, updateTaskQuery,
+  getAllTasks,
+  addNewTask,
+  deleteTaskQuery,
+  updateTaskQuery,
 } = require('./tasks');
 const {
-  getTasksByUserId, addUserTaskQuery, updateUserTask, deleteUserTaskQuery,
+  getTasksByUserId,
+  addUserTaskQuery,
+  updateUserTask,
+  deleteUserTaskQuery,
 } = require('./user_task');
 
 const {
-  getAllVisits, getUserVisits, addNewVisit, updateVisitQuery, deleteVisit,
+  getAllVisits,
+  getUserVisits,
+  addNewVisit,
+  updateVisitQuery,
+  deleteVisit,
 } = require('./visits');
 
 module.exports = {
@@ -31,4 +48,8 @@ module.exports = {
   addNewVisit,
   updateVisitQuery,
   deleteVisit,
+  getUserPermission,
+  updateTaskPermission,
+  updateVisitPermission,
+  updateSittingPermission,
 };
