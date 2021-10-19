@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Avatar, Button, CssBaseline, TextField, Box, Alert, Typography, Container, CircularProgress } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
@@ -7,9 +7,12 @@ import Axios from 'axios';
 import useStyles from './style';
 
 import validationSchema from '../../Utils/validation/login';
+import { AuthContext } from '../../Context/Authentication';
 
 export default function SignIn() {
   const classes = useStyles();
+  const { refresh, setRefresh, setAuthLoading } = useContext(AuthContext);
+
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState();
@@ -24,8 +27,8 @@ export default function SignIn() {
     setPassword(value);
   };
   const clear = () => {
-    setError('');
-    setValidationError('');
+    setError(null);
+    setValidationError(null);
   };
 
   const handleSubmit = async (event) => {
@@ -41,7 +44,9 @@ export default function SignIn() {
       });
       await Axios.post('/api/v1/signin', userData);
       setIsLoading(false);
-      // set is Auth
+      setRefresh(!refresh);
+      setIsLoading(false);
+      setAuthLoading(true);
     } catch (err) {
       setIsLoading(false);
       if (err.inner) {
@@ -93,10 +98,10 @@ export default function SignIn() {
               label="رقم الهاتف"
               name="mobile"
               autoComplete="mobile"
-              helperText={validationError.mobile?.slice(1)}
+              helperText={validationError?.mobile?.slice(1)}
               onChange={handelMobile}
               autoFocus
-              error={validationError.mobile}
+              error={validationError?.mobile}
             />
             <TextField
               margin="normal"
@@ -106,10 +111,10 @@ export default function SignIn() {
               label="كلمة المرور"
               type="password"
               id="password"
-              helperText={validationError.password}
+              helperText={validationError?.password}
               onChange={handlePassword}
               autoComplete="current-password"
-              error={validationError.password}
+              error={validationError?.password}
             />
             {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
