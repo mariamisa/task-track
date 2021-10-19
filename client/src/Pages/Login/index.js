@@ -6,11 +6,9 @@ import Axios from 'axios';
 
 // import useStyles from './style';
 
-import validationSchema from '../../Utils/validation/login';
+// import validationSchema from '../../Utils/validation/login';
 
 function SignIn() {
-  // const classes = useStyles();
-
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState();
@@ -32,9 +30,9 @@ function SignIn() {
         mobile, password
       };
       setIsLoading(true);
-      await validationSchema.validate(userData, {
-        abortEarly: false,
-      });
+      // await validationSchema.validate(userData, {
+      //   abortEarly: false,
+      // });
       await Axios.post('/api/v1/signin', userData);
       setIsLoading(false);
       // set is Auth
