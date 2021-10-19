@@ -1,52 +1,65 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+import React, { useState } from 'react';
+import { Avatar, Button, CssBaseline, TextField, Box, Alert, Typography, Container, CircularProgress } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import axios from 'axios';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-    Copyright ©
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>
-      {new Date().getFullYear()}
-    </Typography>
-  );
-}
+import Axios from 'axios';
 
-const theme = createTheme();
+// import useStyles from './style';
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    axios.post('/api/v1/signin', {
-      email: data.get('email'),
-      password: data.get('password'),
-    }).then((response) => {
-      console.log(response);
-    });
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+import validationSchema from '../../Utils/validation/login';
+
+function SignIn() {
+  // const classes = useStyles();
+
+  const [mobile, setMobile] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState();
+  const [error, setError] = useState();
+  const [validationError, setValidationError] = useState('');
+
+  const handelMobile = ({ target: { value } }) => {
+    setMobile(value);
+  };
+
+  const handlePassword = ({ target: { value } }) => {
+    setPassword(value);
+  };
+
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      const userData = {
+        mobile, password
+      };
+      setIsLoading(true);
+      await validationSchema.validate(userData, {
+        abortEarly: false,
+      });
+      await Axios.post('/api/v1/signin', userData);
+      setIsLoading(false);
+      // set is Auth
+    } catch (err) {
+      setIsLoading(false);
+      if (err.inner) {
+        const isError = err.inner.reduce(
+          (acc, item) => ({
+            ...acc, [item.path]: item.message
+          }),
+          {
+          }
+        );
+        setValidationError({
+          ...isError
+        });
+      } else {
+        setError(
+          err.response ? err.response.data.message : 'حدث خطا ما حاول مجددا مرة اخرى'
+        );
+      }
+    }
   };
 
   return (
-    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -63,7 +76,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            تسجيل الدخول
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{
             mt: 1
@@ -72,10 +85,12 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="mobile"
+              label="رقم الهاتف"
+              name="mobile"
+              autoComplete="mobile"
+              helperText={validationError.mobile}
+              onChange={handelMobile}
               autoFocus
             />
             <TextField
@@ -83,15 +98,17 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="كلمة المرور"
               type="password"
               id="password"
+              helperText={validationError.password}
+              onChange={handlePassword}
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
             onClick={SignIn}
               type="submit"
@@ -101,26 +118,16 @@ export default function SignIn() {
                 mt: 3, mb: 2
               }}
             >
-              Sign In
+            {isLoading ? <CircularProgress color="secondary" /> : 'تسجيل الدخول'}
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
+            {error && (
+            <Alert severity="error">
+              {error}
+            </Alert>
+            )}
           </Box>
         </Box>
-        <Copyright sx={{
-          mt: 8, mb: 4
-        }} />
       </Container>
-    </ThemeProvider>
   );
 }
+export default SignIn;
