@@ -4,11 +4,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 import Axios from 'axios';
 
-// import useStyles from './style';
+import useStyles from './style';
 
-// import validationSchema from '../../Utils/validation/login';
+import validationSchema from '../../Utils/validation/login';
 
-function SignIn() {
+export default function SignIn() {
+  const classes = useStyles();
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState();
@@ -22,6 +23,10 @@ function SignIn() {
   const handlePassword = ({ target: { value } }) => {
     setPassword(value);
   };
+  const clear = () => {
+    setError('');
+    setValidationError('');
+  };
 
   const handleSubmit = async (event) => {
     try {
@@ -29,10 +34,11 @@ function SignIn() {
       const userData = {
         mobile, password
       };
+      clear();
       setIsLoading(true);
-      // await validationSchema.validate(userData, {
-      //   abortEarly: false,
-      // });
+      await validationSchema.validate(userData, {
+        abortEarly: false,
+      });
       await Axios.post('/api/v1/signin', userData);
       setIsLoading(false);
       // set is Auth
@@ -87,9 +93,10 @@ function SignIn() {
               label="رقم الهاتف"
               name="mobile"
               autoComplete="mobile"
-              helperText={validationError.mobile}
+              helperText={validationError.mobile?.slice(1)}
               onChange={handelMobile}
               autoFocus
+              error={validationError.mobile}
             />
             <TextField
               margin="normal"
@@ -102,13 +109,14 @@ function SignIn() {
               helperText={validationError.password}
               onChange={handlePassword}
               autoComplete="current-password"
+              error={validationError.password}
             />
             {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             /> */}
             <Button
-            onClick={SignIn}
+            onClick={handleSubmit}
               type="submit"
               fullWidth
               variant="contained"
@@ -119,7 +127,7 @@ function SignIn() {
             {isLoading ? <CircularProgress color="secondary" /> : 'تسجيل الدخول'}
             </Button>
             {error && (
-            <Alert severity="error">
+            <Alert className={classes.alert} severity="error">
               {error}
             </Alert>
             )}
@@ -128,4 +136,3 @@ function SignIn() {
       </Container>
   );
 }
-export default SignIn;
