@@ -146,6 +146,7 @@ export default function SignIn() {
             label={dictionary.rememberMe}
           />
           <Button
+          color="primary"
             onClick={handleSubmit}
             type="submit"
             fullWidth

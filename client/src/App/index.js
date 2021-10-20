@@ -2,9 +2,10 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import {
-  unstable_createMuiStrictModeTheme as uCreateMui,
   ThemeProvider,
 } from '@mui/material/styles';
+
+import theme from './theme';
 
 import { DASHBOARD_PAGE, LOGIN_PAGE } from '../Utils/routes.constant';
 
@@ -16,13 +17,13 @@ import { LanguageProvider } from '../Context/Language';
 
 import './style.css';
 
-const theme = uCreateMui();
+// const theme = uCreateMui();
 
 const App = () => (
   <div className="App">
-    <LanguageProvider>
-      <AuthProvider>
-        <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <LanguageProvider>
+        <AuthProvider>
           <Layout>
             <Switch>
               <PrivateRoutes exact path={DASHBOARD_PAGE}>
@@ -36,9 +37,9 @@ const App = () => (
               </Route>
             </Switch>
           </Layout>
-        </ThemeProvider>
-      </AuthProvider>
-    </LanguageProvider>
+        </AuthProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   </div>
 );
 
