@@ -1,5 +1,5 @@
 BEGIN;
-DROP TABLE IF EXISTS users,tasks,tasks_users,comments,visits,sitings, CASCADE;
+DROP TABLE IF EXISTS users,tasks,tasks_users,comments,visits,payments,sitings, CASCADE;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(55) NOT NULL,
@@ -13,6 +13,7 @@ CREATE TABLE users (
 );
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
     protocol VARCHAR(255) NOT NULL,
     attatch VARCHAR(255) NOT NULL,
     type VARCHAR(55) DEFAULT 'normal',
@@ -46,6 +47,13 @@ CREATE TABLE visits (
     status VARCHAR(55) DEFAULT 'pending',
     check(status in ('done', 'canceled', 'pending')),
     CONSTRAINT UC_user_visit UNIQUE (user_id,from_country,to_country)
+);
+CREATE TABLE payments (
+    id SERIAL PRIMARY KEY UNIQUE,
+    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL,
+    amount VARCHAR(255),
+    attachments TEXT,
+    month VARCHAR(255)
 );
 CREATE TABLE sitings (
     id SERIAL PRIMARY KEY,

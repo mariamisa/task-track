@@ -5,13 +5,16 @@ const updateTask = async (req, res, next) => {
   try {
     const { edit } = req.user.permission;
     const { id } = req.params;
-    const { protocol, attatch, type } = req.body;
+    const {
+      name, protocol, attatch, type,
+    } = req.body;
 
     if (!edit) {
       throw boomify(401, 'you dont have permission to update task!');
     }
     await updateTaskQuery({
       id,
+      name,
       protocol,
       attatch,
       type,
