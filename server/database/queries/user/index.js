@@ -5,6 +5,7 @@ const updateUserPermission = require('./updateUserPermission');
 const updateTaskPermission = require('./updateTaskPermission');
 const updateVisitPermission = require('./updateVisitPermission');
 const updateSittingPermission = require('./updateSittingPermission');
+const updatePaymentPermission = require('./updateSittingPermission');
 
 const getUserPermission = require('./getUserPermission');
 
@@ -17,4 +18,5 @@ module.exports = {
   updateTaskPermission,
   updateVisitPermission,
   updateSittingPermission,
+  updatePaymentPermission,
 };

@@ -9,6 +9,7 @@ CREATE TABLE users (
     user_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     task_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     visit_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
+    payment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     sitting_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     attatch VARCHAR(55),
     avatar TEXT,
@@ -65,6 +66,6 @@ CREATE TABLE sitings (
     notification_to_send TIMESTAMP
 );
 
-insert into users(username,password,mobile,country,user_permission,task_permission,visit_permission,sitting_permission,job_title) values ('admin','$2b$10$npJSSfBYrXJSDlxowSi4Z.iEelfDM.Y1PN11HWY3hTuAUCoFkLZb6','059000000','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
+insert into users(username,password,mobile,country,user_permission,task_permission,visit_permission,payment_permission,sitting_permission,job_title) values ('admin','$2b$10$npJSSfBYrXJSDlxowSi4Z.iEelfDM.Y1PN11HWY3hTuAUCoFkLZb6','059000000','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
 
 COMMIT;

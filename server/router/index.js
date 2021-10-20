@@ -5,6 +5,7 @@ const publicRoutes = require('./publicRoutes');
 const users = require('./users');
 const tasks = require('./tasks');
 const visits = require('./visits');
+const payments = require('./payments');
 
 // public endpoints
 router.use(publicRoutes);
@@ -14,5 +15,6 @@ router.use(protectMiddleware);
 router.use(users);
 router.use(tasks);
 router.use(visits);
+router.use(payments);
 
 module.exports = router;
