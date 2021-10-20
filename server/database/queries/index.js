@@ -30,6 +30,12 @@ const {
   updateVisitQuery,
   deleteVisit,
 } = require('./visits');
+const {
+  getAllPayment,
+  addNewPayment,
+  deletePaymentQuery,
+  updatePaymentQuery,
+} = require('./payments');
 
 module.exports = {
   createNewUser,
@@ -54,4 +60,8 @@ module.exports = {
   updateVisitPermission,
   updateSittingPermission,
   updatePaymentPermission,
+  getAllPayment,
+  addNewPayment,
+  deletePaymentQuery,
+  updatePaymentQuery,
 };
