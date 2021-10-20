@@ -3,6 +3,7 @@ import { green, purple } from '@mui/material/colors';
 
 const theme = responsiveFontSizes(createTheme({
   palette: {
+    direction: 'rtl',
     primary: {
       main: purple[500],
     },

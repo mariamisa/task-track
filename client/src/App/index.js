@@ -8,9 +8,10 @@ import {
 
 import { DASHBOARD_PAGE, LOGIN_PAGE } from '../Utils/routes.constant';
 
-// import { LoggedOutRoutes, PrivateRoutes } from './Routes';
+import { LoggedOutRoutes, PrivateRoutes } from './Routes';
 
 import { Dashboard, Login, Layout, NotFound } from '../Pages';
+import AuthProvider from '../Context/Authentication';
 
 import './style.css';
 
@@ -18,21 +19,23 @@ const theme = uCreateMui();
 
 const App = () => (
   <div className="App">
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <Switch>
-          <Route exact path={DASHBOARD_PAGE}>
-            <Dashboard />
-          </Route>
-          <Route exact path={LOGIN_PAGE}>
-            <Login />
-          </Route>
-          <Route>
-            <NotFound />
-          </Route>
-        </Switch>
-      </Layout>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Switch>
+            <PrivateRoutes exact path={DASHBOARD_PAGE}>
+              <Dashboard />
+            </PrivateRoutes>
+            <LoggedOutRoutes exact path={LOGIN_PAGE}>
+              <Login />
+            </LoggedOutRoutes>
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
+        </Layout>
+      </ThemeProvider>
+    </AuthProvider>
   </div>
 );
 
