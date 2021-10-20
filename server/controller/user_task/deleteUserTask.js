@@ -3,7 +3,7 @@ const { boomify } = require('../../utils');
 
 const deleteUserTask = async (req, res, next) => {
   try {
-    const { delete: deleteTaskP } = req.user.permission;
+    const { delete: deleteTaskP } = req.permission;
     const { userId, taskId } = req.params;
 
     if (!deleteTaskP) {
@@ -12,7 +12,7 @@ const deleteUserTask = async (req, res, next) => {
     await deleteUserTaskQuery({ userId, taskId });
     res.status(200).json({
       statusCode: 200,
-      msg: 'user task deleted successfully',
+      message: 'user task deleted successfully',
     });
   } catch (error) {
     next(error);

@@ -37,6 +37,10 @@ const {
   updatePaymentQuery,
 } = require('./payments');
 
+const {
+  getCommentsByTaskId, addComment, updateComment, deleteComment, getCommentById,
+} = require('./comments');
+
 module.exports = {
   createNewUser,
   getUserByMobile,
@@ -64,4 +68,10 @@ module.exports = {
   addNewPayment,
   deletePaymentQuery,
   updatePaymentQuery,
+  getCommentsByTaskId,
+  addComment,
+  updateComment,
+  deleteComment,
+  getCommentById,
+
 };

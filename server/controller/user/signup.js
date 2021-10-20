@@ -7,7 +7,12 @@ const { promiseJWT, boomify } = require('../../utils');
 
 const signupController = async (req, res, next) => {
   try {
+    const { add } = req.permission;
     const { mobile, password, username } = req.body;
+
+    if (!add) {
+      throw boomify(401, 'you dont have permission to add users!');
+    }
     const { rows } = await getUserByMobile({ mobile });
     const [checkedUser] = rows;
     if (checkedUser) {

@@ -4,6 +4,7 @@ const {
   updateVisitPermission,
   updateSittingPermission,
   updatePaymentPermission,
+  updateCommentPermission,
 } = require('../../database/queries');
 const { boomify } = require('../../utils');
 
@@ -32,6 +33,9 @@ const updateUserPermission = async (req, res, next) => {
         break;
       case 'payment':
         await updatePaymentPermission({ permissionToString, id });
+        break;
+      case 'comment':
+        await updateCommentPermission({ permissionToString, id });
         break;
       default:
     }

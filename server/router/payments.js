@@ -7,11 +7,9 @@ const {
   paymentPermission,
 } = require('../middleware/permission');
 
-router.use(paymentPermission);
-
-router.get('/payments', getPayments);
-router.post('/payments', addPayment);
-router.patch('/payments/:id', updatePayment);
-router.delete('/payments/:id', deletePayment);
+router.get('/payments', paymentPermission, getPayments);
+router.post('/payments', paymentPermission, addPayment);
+router.patch('/payments/:id', paymentPermission, updatePayment);
+router.delete('/payments/:id', paymentPermission, deletePayment);
 
 module.exports = router;
