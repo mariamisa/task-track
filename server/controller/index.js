@@ -25,6 +25,10 @@ const {
   getVisits, getUserVisits, addVisit, updateVisit, deleteVisit,
 } = require('./visits');
 
+const {
+  getPayments, addPayment, updatePayment, deletePayment,
+} = require('./payments');
+
 module.exports = {
   clientError,
   serverError,
@@ -46,4 +50,8 @@ module.exports = {
   addVisit,
   updateVisit,
   deleteVisit,
+  getPayments,
+  addPayment,
+  updatePayment,
+  deletePayment,
 };
