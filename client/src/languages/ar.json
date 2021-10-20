@@ -8,6 +8,8 @@
     "option1": "الخيار 1",
     "option2": "الخيار 2",
     "option3": "الخيار 3",
+    "language":"اللغة",
+    "languageType":"العربية",
     "loginTitle":"تسجيل الدخول",
     "loginEnterMobile":"الرجاء ادخال رقم الهاتف",
     "mobileLabel":"الهاتف",

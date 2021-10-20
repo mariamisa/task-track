@@ -8,6 +8,8 @@
     "option1": "Option 1",
     "option2": "Option 2",
     "option3": "Option 3",
+    "language":"language",
+    "languageType":"english",
     "loginTitle":"Sign in",
     "loginEnterMobile":"please enter your mobile number",
     "mobileLabel":"mobile",
