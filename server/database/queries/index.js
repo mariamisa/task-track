@@ -7,6 +7,7 @@ const {
   updateTaskPermission,
   updateVisitPermission,
   updateSittingPermission,
+  updatePaymentPermission,
 } = require('./user');
 
 const {
@@ -52,4 +53,5 @@ module.exports = {
   updateTaskPermission,
   updateVisitPermission,
   updateSittingPermission,
+  updatePaymentPermission,
 };
