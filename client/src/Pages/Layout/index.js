@@ -1,18 +1,29 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { element } from 'prop-types';
+import { Alert, CircularProgress } from '@mui/material';
+import { AuthContext } from '../../Context/Authentication';
+// import useStyles from './style';
 
-import './style.css';
-
-const LayoutPage = ({ children }) => (
+function Layout({ children }) {
+  // const classes = useStyles();
+  const { authLoading, error } = useContext(AuthContext);
+  return (
     <>
-      <h1>hi from layout page</h1>
-      {children}
+      {error && <Alert severity="error">{error}</Alert>}
+      {authLoading ? (
+        <CircularProgress size={70} />
+      ) : (
+        <div>
+          <p>layout</p>
+          {children}
+        </div>
+      )}
     </>
-);
+  );
+}
 
-LayoutPage.propTypes = {
-  children: PropTypes.node.isRequired,
+Layout.propTypes = {
+  children: element.isRequired,
 };
 
-export default LayoutPage;
+export default Layout;

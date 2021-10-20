@@ -1,6 +1,5 @@
 const logoutController = (req, res) => {
-  res.clearCookie('token');
-  res.json({
+  res.clearCookie('token').json({
     title: 'Logout Successful',
   });
 };

@@ -21,13 +21,12 @@ const signupController = async (req, res, next) => {
       avatar: `https://avatar.oxro.io/avatar.svg?name=${username[0]}`,
       password: hashedPassword,
     });
-    const { id, permission } = newUserData[0];
-    const permissionObject = JSON.parse(permission[0]);
+    const { id } = newUserData[0];
     const token = await promiseJWT(sign, {
       id,
       username,
-      permissionObject,
     });
+
     res.status(201).cookie('token', token).json({
       statusCode: 201,
       message: 'Signed up successfully',
