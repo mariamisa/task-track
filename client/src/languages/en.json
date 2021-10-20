@@ -7,5 +7,12 @@
     "enterText": "Please enter your answer",
     "option1": "Option 1",
     "option2": "Option 2",
-    "option3": "Option 3"
+    "option3": "Option 3",
+    "loginTitle":"Sign in",
+    "loginEnterMobile":"please enter your mobile number",
+    "mobileLabel":"mobile",
+    "loginEnterPassword":"please enter your password",
+    "passwordLabel":"password",
+    "rememberMe":"remember me"
+
   }
