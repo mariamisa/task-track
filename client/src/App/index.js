@@ -17,8 +17,6 @@ import { LanguageProvider } from '../Context/Language';
 
 import './style.css';
 
-// const theme = uCreateMui();
-
 const App = () => (
   <div className="App">
     <ThemeProvider theme={theme}>
