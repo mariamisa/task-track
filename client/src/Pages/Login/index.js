@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Avatar, Button, CssBaseline, TextField, Box, Alert, Typography, Container, CircularProgress } from '@mui/material';
+import { Avatar, Button, CssBaseline, TextField, Box, Alert, Typography, Container, CircularProgress, FormControlLabel, Checkbox } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 import Axios from 'axios';
@@ -7,6 +7,7 @@ import Axios from 'axios';
 import useStyles from './style';
 
 import validationSchema from '../../Utils/validation/login';
+import handelError from '../../Utils/errorHandel';
 import { AuthContext } from '../../Context/Authentication';
 
 export default function SignIn() {
@@ -61,9 +62,7 @@ export default function SignIn() {
           ...isError
         });
       } else {
-        setError(
-          err.response ? err.response.data.message : 'حدث خطا ما حاول مجددا مرة اخرى'
-        );
+        handelError(setError, err);
       }
     }
   };
@@ -85,7 +84,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            تسجيل الدخول
+            Sign In
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{
             mt: 1
@@ -95,7 +94,7 @@ export default function SignIn() {
               required
               fullWidth
               id="mobile"
-              label="رقم الهاتف"
+              label="mobile"
               name="mobile"
               autoComplete="mobile"
               helperText={validationError?.mobile?.slice(1)}
@@ -108,7 +107,7 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
-              label="كلمة المرور"
+              label="password"
               type="password"
               id="password"
               helperText={validationError?.password}
@@ -116,10 +115,10 @@ export default function SignIn() {
               autoComplete="current-password"
               error={validationError?.password}
             />
-            {/* <FormControlLabel
+            <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            /> */}
+            />
             <Button
             onClick={handleSubmit}
               type="submit"
@@ -129,7 +128,7 @@ export default function SignIn() {
                 mt: 3, mb: 2
               }}
             >
-            {isLoading ? <CircularProgress color="secondary" /> : 'تسجيل الدخول'}
+            {isLoading ? <CircularProgress color="secondary" /> : 'login'}
             </Button>
             {error && (
             <Alert className={classes.alert} severity="error">
