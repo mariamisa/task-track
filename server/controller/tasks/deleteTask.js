@@ -3,10 +3,10 @@ const { boomify } = require('../../utils');
 
 const deleteTask = async (req, res, next) => {
   try {
-    const { delete: deleteTaskP } = req.user.permission;
+    const { delete: deleteTaskP } = req.permission;
     const { id } = req.params;
     if (!deleteTaskP) {
-      throw boomify(401, 'you dont have permission to update tasks!');
+      throw boomify(401, 'you dont have permission to delete tasks!');
     }
     await deleteTaskQuery(id);
     res.status(200).json({

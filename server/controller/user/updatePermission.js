@@ -1,20 +1,36 @@
-const { updateUserPermission } = require('../../database/queries');
+const {
+  updateUserPermission: updateUserPermissionQuery,
+  updateTaskPermission,
+  updateVisitPermission,
+  updateSittingPermission,
+} = require('../../database/queries');
 const { boomify } = require('../../utils');
 
-const signupController = async (req, res, next) => {
+const updateUserPermission = async (req, res, next) => {
   try {
-    const { edit } = req.user.permission;
-    const { id } = req.params;
-    const { permission } = req.body;
+    const { edit } = req.permission;
+    const { id, permissionType } = req.params;
+    const { permissionValue } = req.body;
 
     if (!edit) {
       throw boomify(401, 'you dont have permission to update users!');
     }
-    const permissionToString = Array(permission);
-    await updateUserPermission({
-      id,
-      permissionToString,
-    });
+    const permissionToString = Array(permissionValue);
+    switch (permissionType) {
+      case 'user':
+        await updateUserPermissionQuery({ permissionToString, id });
+        break;
+      case 'task':
+        await updateTaskPermission({ permissionToString, id });
+        break;
+      case 'visit':
+        await updateVisitPermission({ permissionToString, id });
+        break;
+      case 'sitting':
+        await updateSittingPermission({ permissionToString, id });
+        break;
+      default:
+    }
 
     res.status(200).json({
       statusCode: 200,
@@ -25,4 +41,4 @@ const signupController = async (req, res, next) => {
   }
 };
 
-module.exports = signupController;
+module.exports = updateUserPermission;

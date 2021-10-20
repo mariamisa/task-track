@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
     msg: 'hi from public',
   });
 });
+
 router.post('/signup', signupValidation, signupController);
 router.post('/signin', loginValidation, loginController);
 router.get('/logout', logoutController);
