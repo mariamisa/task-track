@@ -6,6 +6,7 @@ const users = require('./users');
 const tasks = require('./tasks');
 const visits = require('./visits');
 const payments = require('./payments');
+const comments = require('./comments');
 
 // public endpoints
 router.use(publicRoutes);
@@ -16,5 +17,6 @@ router.use(users);
 router.use(tasks);
 router.use(visits);
 router.use(payments);
+router.use(comments);
 
 module.exports = router;

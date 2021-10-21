@@ -18,6 +18,7 @@ const isAuthController = async (req, res, next) => {
         visit_permission: visitPermission,
         sitting_permission: sittingPermission,
         payment_permission: paymentPermission,
+        comment_permission: commentPermission,
       },
     ] = rows;
 
@@ -35,6 +36,7 @@ const isAuthController = async (req, res, next) => {
         visitPermission,
         sittingPermission,
         paymentPermission,
+        commentPermission,
       },
     });
   } catch (error) {

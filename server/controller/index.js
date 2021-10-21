@@ -29,6 +29,10 @@ const {
   getPayments, addPayment, updatePayment, deletePayment,
 } = require('./payments');
 
+const {
+  getTaskComments, addComment, updateComment, deleteComment,
+} = require('./comments');
+
 module.exports = {
   clientError,
   serverError,
@@ -54,4 +58,8 @@ module.exports = {
   addPayment,
   updatePayment,
   deletePayment,
+  getTaskComments,
+  addComment,
+  updateComment,
+  deleteComment,
 };

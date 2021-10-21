@@ -11,6 +11,7 @@ CREATE TABLE users (
     visit_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     payment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     sitting_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
+    comment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     attatch VARCHAR(55),
     avatar TEXT,
     job_title VARCHAR(255)
@@ -27,7 +28,7 @@ CREATE TABLE comments(
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL,
     task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL,
-    comment VARCHAR(255)
+    comment VARCHAR(255) NOT NULL
 );
 CREATE TABLE tasks_users (
     id SERIAL PRIMARY KEY,
@@ -66,6 +67,6 @@ CREATE TABLE sitings (
     notification_to_send TIMESTAMP
 );
 
-insert into users(username,password,mobile,country,user_permission,task_permission,visit_permission,payment_permission,sitting_permission,job_title) values ('admin','$2b$10$npJSSfBYrXJSDlxowSi4Z.iEelfDM.Y1PN11HWY3hTuAUCoFkLZb6','059000000','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
+insert into users(username,password,mobile,country,user_permission,task_permission,visit_permission,payment_permission,sitting_permission,comment_permission,job_title) values ('admin','$2b$10$npJSSfBYrXJSDlxowSi4Z.iEelfDM.Y1PN11HWY3hTuAUCoFkLZb6','059000000','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
 
 COMMIT;

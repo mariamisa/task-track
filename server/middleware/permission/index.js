@@ -3,7 +3,13 @@ const taskPermission = require('./taskPermission');
 const visitPermission = require('./visitPermission');
 const sittingPermission = require('./sittingPermission');
 const paymentPermission = require('./paymentPermission');
+const commentPermission = require('./commentPermission');
 
 module.exports = {
-  userPermission, taskPermission, visitPermission, sittingPermission, paymentPermission,
+  userPermission,
+  taskPermission,
+  visitPermission,
+  sittingPermission,
+  paymentPermission,
+  commentPermission,
 };
