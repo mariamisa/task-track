@@ -44,6 +44,7 @@ const {
   addSettingQuery,
   deleteSettingQuery,
   updateSettingQuery,
+  getUserSettingQuery,
 } = require('./settings');
 
 module.exports = {
@@ -81,4 +82,5 @@ module.exports = {
   addSettingQuery,
   deleteSettingQuery,
   updateSettingQuery,
+  getUserSettingQuery,
 };

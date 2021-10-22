@@ -7,6 +7,7 @@ const {
   logoutController,
   updatePermissionController,
   updateSetting,
+  getUserSetting,
 } = require('./user');
 
 const {
@@ -64,4 +65,5 @@ module.exports = {
   updateComment,
   deleteComment,
   updateSetting,
+  getUserSetting,
 };

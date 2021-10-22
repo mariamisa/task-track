@@ -35,7 +35,7 @@ const updateUserPermission = async (req, res, next) => {
           rows: [permissionUser],
         } = await updateSettingPermission({ permissionToString, id });
         const settingPermissionToObject = toObject(permissionUser.setting_permission);
-        if (settingPermissionToObject.add) {
+        if (settingPermissionToObject.edit) {
           await addSettingQuery(id);
         } else {
           await deleteSettingQuery(id);
