@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { element } from 'prop-types';
-import { Alert, CircularProgress } from '@mui/material';
+import { Alert, CircularProgress, Container } from '@mui/material';
 import { AuthContext } from '../../Context/Authentication';
 import Header from '../../Components/Header';
 // import useStyles from './style';
@@ -14,11 +14,11 @@ function Layout({ children }) {
       {authLoading ? (
         <CircularProgress size={70} />
       ) : (
-        <div>
+        <Container maxWidth="sm">
           <p>layout</p>
           <Header/>
           {children}
-        </div>
+        </Container>
       )}
     </>
   );
