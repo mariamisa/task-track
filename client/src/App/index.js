@@ -3,14 +3,11 @@ import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 
 import { DASHBOARD_PAGE, LOGIN_PAGE } from '../Utils/routes.constant';
-import { Dashboard, Login, Layout, NotFound } from '../Pages';
 import { LoggedOutRoutes, PrivateRoutes } from './Routes';
-
+import { Dashboard, Login, Layout, NotFound } from '../Pages';
 import AuthProvider from '../Context/Authentication';
 
 import theme from './theme';
-
-import './style.css';
 
 const App = () => (
   <div className="App">

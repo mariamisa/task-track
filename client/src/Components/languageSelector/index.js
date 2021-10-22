@@ -1,35 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box, InputLabel, MenuItem, Select } from '@mui/material';
+import { Box, MenuItem, Button, Menu } from '@mui/material';
+import LanguageIcon from '@mui/icons-material/Language';
 import { languages } from '../../i18n/config';
 
 export default function LanguageSelector() {
   const { t, i18n } = useTranslation();
-  const changeLanguage = (event) => {
-    i18n.changeLanguage(event.target.value);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+    handleClose();
   };
   return (
     <>
       <p>{t('home')}</p>
-      <Box
-        sx={{
-          minWidth: 120,
-        }}
-      >
-        <InputLabel id="demo-simple-select-label">lang</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="language"
-          onChange={changeLanguage}
-          value={i18n.language}
+      <Box>
+        <Button
+          id="basic-button"
+          aria-controls="basic-menu"
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
         >
-          {languages.map((el) => (
-            <MenuItem key={el} value={el}>
+          <LanguageIcon />
+        </Button>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+          onChange={changeLanguage}
+        >
+          {languages.map((el, index) => (
+            <MenuItem onClick={() => changeLanguage(el)} key={index} value={el}>
               {el}
             </MenuItem>
           ))}
-        </Select>
+        </Menu>
       </Box>
     </>
   );
