@@ -1,26 +1,21 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-import {
-  ThemeProvider,
-} from '@mui/material/styles';
-
-import theme from './theme';
+import { ThemeProvider } from '@mui/material/styles';
 
 import { DASHBOARD_PAGE, LOGIN_PAGE } from '../Utils/routes.constant';
-
+import { Dashboard, Login, Layout, NotFound } from '../Pages';
 import { LoggedOutRoutes, PrivateRoutes } from './Routes';
 
-import { Dashboard, Login, Layout, NotFound } from '../Pages';
 import AuthProvider from '../Context/Authentication';
-import { LanguageProvider } from '../Context/Language';
+
+import theme from './theme';
 
 import './style.css';
 
 const App = () => (
   <div className="App">
-    <ThemeProvider theme={theme}>
-      <LanguageProvider>
+    <Suspense fallback="loading">
+      <ThemeProvider theme={theme}>
         <AuthProvider>
           <Layout>
             <Switch>
@@ -36,8 +31,8 @@ const App = () => (
             </Switch>
           </Layout>
         </AuthProvider>
-      </LanguageProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </Suspense>
   </div>
 );
 

@@ -12,7 +12,7 @@ const deleteVisit = async (req, res, next) => {
     }
     res.status(200).json({
       statusCode: 200,
-      msg: 'user visit deleted successfully',
+      message: 'user visit deleted successfully',
     });
   } catch (error) {
     next(error);

@@ -12,7 +12,7 @@ const addVisit = async (req, res, next) => {
     });
     res.status(200).json({
       statusCode: 200,
-      msg: 'visit added successfully',
+      message: 'visit added successfully',
     });
   } catch (error) {
     if (error.constraint === 'uc_user_visit') {

@@ -1,32 +1,36 @@
-import React, { useContext } from 'react';
-import { Box, MenuItem, Select } from '@mui/material';
-import TranslateIcon from '@mui/icons-material/Translate';
-
-import { languageOptions } from '../../languages';
-import { LanguageContext } from '../../Context/Language';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Box, InputLabel, MenuItem, Select } from '@mui/material';
+import { languages } from '../../i18n/config';
 
 export default function LanguageSelector() {
-  const { userLanguage, userLanguageChange } = useContext(LanguageContext);
-
-  // set selected language by calling context method
-  const handleLanguageChange = ({ target: { value } }) => userLanguageChange(value);
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (event) => {
+    i18n.changeLanguage(event.target.value);
+  };
   return (
-    <Box sx={{
-      minWidth: 120
-    }}>
+    <>
+      <p>{t('home')}</p>
+      <Box
+        sx={{
+          minWidth: 120,
+        }}
+      >
+        <InputLabel id="demo-simple-select-label">lang</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="language"
-          onChange={handleLanguageChange}
-          value={userLanguage}
-          IconComponent={TranslateIcon}
-          color="primary"
+          onChange={changeLanguage}
+          value={i18n.language}
         >
-          {Object.entries(languageOptions).map(([id, name]) => (
-        <MenuItem key={id} value={id}>{name}</MenuItem>
+          {languages.map((el) => (
+            <MenuItem key={el} value={el}>
+              {el}
+            </MenuItem>
           ))}
         </Select>
-    </Box>
+      </Box>
+    </>
   );
 }

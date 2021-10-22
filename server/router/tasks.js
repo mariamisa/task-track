@@ -19,10 +19,10 @@ router.post('/user/tasks/:taskId', addUserTask);
 router.patch('/user/tasks/:taskId', updateUserTask);
 router.delete('/user/tasks/:userId/:taskId', deleteUserTask);
 
-router.use(taskPermission);
-router.get('/tasks', getTasks);
-router.post('/tasks', addTask);
-router.delete('/tasks/:id', deleteTask);
-router.patch('/tasks/:id', updateTask);
+// router.use(taskPermission);
+router.get('/tasks', taskPermission, getTasks);
+router.post('/tasks', taskPermission, addTask);
+router.delete('/tasks/:id', taskPermission, deleteTask);
+router.patch('/tasks/:id', taskPermission, updateTask);
 
 module.exports = router;

@@ -3,7 +3,7 @@ const { boomify } = require('../../utils');
 
 const updateUserTask = async (req, res, next) => {
   try {
-    const { edit } = req.user.permission;
+    const { edit } = req.permission;
     const { id: taskId } = req.params;
     const { id: userId } = req.user;
     const {

@@ -6,7 +6,7 @@ const {
   getUserPermission,
   updateTaskPermission,
   updateVisitPermission,
-  updateSittingPermission,
+  updateSettingPermission,
   updatePaymentPermission,
 } = require('./user');
 
@@ -37,6 +37,16 @@ const {
   updatePaymentQuery,
 } = require('./payments');
 
+const {
+  getCommentsByTaskId, addComment, updateComment, deleteComment, getCommentById,
+} = require('./comments');
+const {
+  addSettingQuery,
+  deleteSettingQuery,
+  updateSettingQuery,
+  getUserSettingQuery,
+} = require('./settings');
+
 module.exports = {
   createNewUser,
   getUserByMobile,
@@ -58,10 +68,19 @@ module.exports = {
   getUserPermission,
   updateTaskPermission,
   updateVisitPermission,
-  updateSittingPermission,
+  updateSettingPermission,
   updatePaymentPermission,
   getAllPayment,
   addNewPayment,
   deletePaymentQuery,
   updatePaymentQuery,
+  getCommentsByTaskId,
+  addComment,
+  updateComment,
+  deleteComment,
+  getCommentById,
+  addSettingQuery,
+  deleteSettingQuery,
+  updateSettingQuery,
+  getUserSettingQuery,
 };

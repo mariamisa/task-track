@@ -6,6 +6,8 @@ const {
   isAuthController,
   logoutController,
   updatePermissionController,
+  updateSetting,
+  getUserSetting,
 } = require('./user');
 
 const {
@@ -28,6 +30,10 @@ const {
 const {
   getPayments, addPayment, updatePayment, deletePayment,
 } = require('./payments');
+
+const {
+  getTaskComments, addComment, updateComment, deleteComment,
+} = require('./comments');
 
 module.exports = {
   clientError,
@@ -54,4 +60,10 @@ module.exports = {
   addPayment,
   updatePayment,
   deletePayment,
+  getTaskComments,
+  addComment,
+  updateComment,
+  deleteComment,
+  updateSetting,
+  getUserSetting,
 };

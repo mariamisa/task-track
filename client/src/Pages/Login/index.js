@@ -21,12 +21,10 @@ import useStyles from './style';
 import validationSchema from '../../Utils/validation/login';
 import handelError from '../../Utils/errorHandel';
 import { AuthContext } from '../../Context/Authentication';
-import { Text, LanguageContext } from '../../Context/Language';
 
 export default function SignIn() {
   const classes = useStyles();
   const { refresh, setRefresh, setAuthLoading } = useContext(AuthContext);
-  const { dictionary } = useContext(LanguageContext);
 
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
@@ -103,7 +101,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          <Text tid="loginTitle" />
+          login
         </Typography>
         <Box
           component="form"
@@ -118,11 +116,11 @@ export default function SignIn() {
             required
             fullWidth
             id="mobile"
-            label={dictionary.mobileLabel}
+            label="mobile"
             name="mobile"
             autoComplete="mobile"
             helperText={validationError?.mobile?.slice(1)}
-            placeholder={dictionary.loginEnterMobile}
+            placeholder="enter your mobile"
             onChange={handelMobile}
             autoFocus
             error={validationError?.mobile}
@@ -132,18 +130,18 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
-            label={dictionary.password}
+            label="password"
             type="password"
             id="password"
             helperText={validationError?.password}
             onChange={handlePassword}
-            placeholder={dictionary.loginEnterPassword}
+            placeholder="enter your password"
             autoComplete="current-password"
             error={validationError?.password}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label={dictionary.rememberMe}
+            label="remember me"
           />
           <Button
           color="primary"
@@ -156,7 +154,7 @@ export default function SignIn() {
               mb: 2,
             }}
           >
-            {isLoading ? <CircularProgress color="secondary" /> : <Text tid="loginTitle"/> }
+            {isLoading ? <CircularProgress color="secondary" /> : 'Login' }
           </Button>
           {error && (
             <Alert className={classes.alert} severity="error">
