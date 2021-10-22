@@ -1,5 +1,5 @@
 BEGIN;
-DROP TABLE IF EXISTS users,tasks,tasks_users,comments,visits,payments,sitings, CASCADE;
+DROP TABLE IF EXISTS users,tasks,tasks_users,comments,visits,payments,settings, CASCADE;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(55) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE users (
     task_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     visit_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     payment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
-    sitting_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
+    setting_permission text[] NOT NULL DEFAULT Array['{"view":false,"edit":false}'],
     comment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     attatch VARCHAR(55),
     avatar TEXT,
@@ -60,13 +60,13 @@ CREATE TABLE payments (
     attachments TEXT,
     month VARCHAR(255)
 );
-CREATE TABLE sitings (
+CREATE TABLE settings (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL UNIQUE,
-    km_cost VARCHAR(55),
-    notification_to_send TIMESTAMP
+    km_cost VARCHAR(55) DEFAULT '10',
+    notification_to_send TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-insert into users(username,password,mobile,country,user_permission,task_permission,visit_permission,payment_permission,sitting_permission,comment_permission,job_title) values ('admin','$2b$10$npJSSfBYrXJSDlxowSi4Z.iEelfDM.Y1PN11HWY3hTuAUCoFkLZb6','059000000','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
-
+insert into users(username,password,mobile,country,user_permission,task_permission,visit_permission,payment_permission,setting_permission,comment_permission,job_title) values ('admin','$2b$10$npJSSfBYrXJSDlxowSi4Z.iEelfDM.Y1PN11HWY3hTuAUCoFkLZb6','059000000','gaza',Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],Array['{"view":true,"edit":true}'],Array['{"view":true,"add":true,"edit":true,"delete":true}'],'admin');
+insert into settings(user_id) values (1);
 COMMIT;

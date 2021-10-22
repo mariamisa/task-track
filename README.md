@@ -34,7 +34,7 @@ As a user, I can see all tasks and visited, and add my own tasks/visits, and edi
 * I can see all employee's tasks and visits.
 * I can add new employee.
 * I can add new task.
-* I can add edit my sitting (change the color and set the notification date and km cost).
+* I can add edit my setting (change the color and set the notification date and km cost).
 
 ***As a employee :***
 * I can log in into the app.
