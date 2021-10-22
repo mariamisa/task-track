@@ -144,6 +144,7 @@ export default function SignIn() {
             label="remember me"
           />
           <Button
+          color="primary"
             onClick={handleSubmit}
             type="submit"
             fullWidth

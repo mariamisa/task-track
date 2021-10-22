@@ -1,27 +1,22 @@
 import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-import {
-  unstable_createMuiStrictModeTheme as uCreateMui,
-  ThemeProvider,
-} from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 import { DASHBOARD_PAGE, LOGIN_PAGE } from '../Utils/routes.constant';
-
+import { Dashboard, Login, Layout, NotFound } from '../Pages';
 import { LoggedOutRoutes, PrivateRoutes } from './Routes';
 
-import { Dashboard, Login, Layout, NotFound } from '../Pages';
 import AuthProvider from '../Context/Authentication';
 
-import './style.css';
+import theme from './theme';
 
-const theme = uCreateMui();
+import './style.css';
 
 const App = () => (
   <div className="App">
     <Suspense fallback="loading">
-      <AuthProvider>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <AuthProvider>
           <Layout>
             <Switch>
               <PrivateRoutes exact path={DASHBOARD_PAGE}>
@@ -35,8 +30,8 @@ const App = () => (
               </Route>
             </Switch>
           </Layout>
-        </ThemeProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </Suspense>
   </div>
 );

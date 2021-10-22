@@ -1,9 +1,9 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { green, purple } from '@mui/material/colors';
 
-const theme = responsiveFontSizes(createTheme({
+const theme = createTheme({
+  direction: 'rtl',
   palette: {
-    direction: 'rtl',
     primary: {
       main: purple[500],
     },
@@ -11,6 +11,6 @@ const theme = responsiveFontSizes(createTheme({
       main: green[500],
     },
   },
-}));
+});
 
 export default theme;
