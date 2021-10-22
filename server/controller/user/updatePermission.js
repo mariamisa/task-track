@@ -2,11 +2,13 @@ const {
   updateUserPermission: updateUserPermissionQuery,
   updateTaskPermission,
   updateVisitPermission,
-  updateSittingPermission,
+  updateSettingPermission,
   updatePaymentPermission,
   updateCommentPermission,
+  addSettingQuery,
+  deleteSettingQuery,
 } = require('../../database/queries');
-const { boomify } = require('../../utils');
+const { boomify, toObject } = require('../../utils');
 
 const updateUserPermission = async (req, res, next) => {
   try {
@@ -28,9 +30,18 @@ const updateUserPermission = async (req, res, next) => {
       case 'visit':
         await updateVisitPermission({ permissionToString, id });
         break;
-      case 'sitting':
-        await updateSittingPermission({ permissionToString, id });
+      case 'setting': {
+        const {
+          rows: [permissionUser],
+        } = await updateSettingPermission({ permissionToString, id });
+        const settingPermissionToObject = toObject(permissionUser.setting_permission);
+        if (settingPermissionToObject.add) {
+          await addSettingQuery(id);
+        } else {
+          await deleteSettingQuery(id);
+        }
         break;
+      }
       case 'payment':
         await updatePaymentPermission({ permissionToString, id });
         break;
