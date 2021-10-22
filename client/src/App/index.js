@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import {
@@ -12,7 +12,6 @@ import { LoggedOutRoutes, PrivateRoutes } from './Routes';
 
 import { Dashboard, Login, Layout, NotFound } from '../Pages';
 import AuthProvider from '../Context/Authentication';
-import { LanguageProvider } from '../Context/Language';
 
 import './style.css';
 
@@ -20,7 +19,7 @@ const theme = uCreateMui();
 
 const App = () => (
   <div className="App">
-    <LanguageProvider>
+    <Suspense fallback="loading">
       <AuthProvider>
         <ThemeProvider theme={theme}>
           <Layout>
@@ -38,7 +37,7 @@ const App = () => (
           </Layout>
         </ThemeProvider>
       </AuthProvider>
-    </LanguageProvider>
+    </Suspense>
   </div>
 );
 

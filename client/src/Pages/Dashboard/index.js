@@ -1,11 +1,12 @@
 import React from 'react';
-import Explore from './Explore';
+// import { useTranslation } from 'react-i18next';
 
 export default function Dashboard() {
+  // const { t } = useTranslation();
   return (
         <div>
-            hi from dashboard
-            <Explore/>
+          {/* {t('home')} */}
+          hi from dashboard
         </div>
   );
 }
