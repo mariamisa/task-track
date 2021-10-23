@@ -9,6 +9,7 @@ const {
   updateSettingPermission,
   updatePaymentPermission,
   updateAvatarImage,
+  updateUserInfo,
 } = require('./user');
 
 const {
@@ -30,6 +31,7 @@ const {
   addNewVisit,
   updateVisitQuery,
   deleteVisit,
+  getVisitById,
 } = require('./visits');
 const {
   getAllPayment,
@@ -66,6 +68,7 @@ module.exports = {
   addNewVisit,
   updateVisitQuery,
   deleteVisit,
+  getVisitById,
   getUserPermission,
   updateTaskPermission,
   updateVisitPermission,
@@ -85,4 +88,5 @@ module.exports = {
   updateSettingQuery,
   getUserSettingQuery,
   updateAvatarImage,
+  updateUserInfo,
 };

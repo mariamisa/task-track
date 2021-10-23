@@ -8,6 +8,7 @@ const {
   updateSetting,
   getUserSetting,
   updateAvatarController,
+  updateUserInfo,
 } = require('../controller');
 const { userPermission, settingPermission } = require('../middleware/permission');
 
@@ -17,5 +18,7 @@ router.patch('/users/:id/permission/:permissionType', userPermission, updatePerm
 
 router.get('/users/settings', settingPermission, getUserSetting);
 router.patch('/users/settings', settingPermission, updateSetting);
+
 router.patch('/users/avatar', updateAvatarController);
+router.patch('/users/:id', userPermission, updateUserInfo);
 module.exports = router;
