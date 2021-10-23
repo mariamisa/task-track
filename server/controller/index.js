@@ -8,6 +8,7 @@ const {
   updatePermissionController,
   updateSetting,
   getUserSetting,
+  updateAvatarController,
 } = require('./user');
 
 const {
@@ -66,4 +67,5 @@ module.exports = {
   deleteComment,
   updateSetting,
   getUserSetting,
+  updateAvatarController,
 };

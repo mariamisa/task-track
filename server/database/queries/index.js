@@ -8,6 +8,7 @@ const {
   updateVisitPermission,
   updateSettingPermission,
   updatePaymentPermission,
+  updateAvatarImage,
 } = require('./user');
 
 const {
@@ -83,4 +84,5 @@ module.exports = {
   deleteSettingQuery,
   updateSettingQuery,
   getUserSettingQuery,
+  updateAvatarImage,
 };

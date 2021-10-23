@@ -4,6 +4,7 @@ const express = require('express');
 const { join } = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
+const { parse: upload } = require('express-form-data');
 
 const router = require('./router');
 const { serverError, clientError } = require('./controller');
@@ -22,6 +23,7 @@ const middleware = [
     limit: '50mb',
   }),
   cookieParser(),
+  upload(),
   express.static(join(__dirname, '..', 'client', 'build')),
   logger('dev'),
 ];
