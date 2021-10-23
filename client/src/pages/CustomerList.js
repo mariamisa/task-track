@@ -7,7 +7,7 @@ import CustomerListToolbar from '../Components/customer/CustomerListToolbar';
 const CustomerList = () => (
   <>
     <Helmet>
-      <title>Customers | Material Kit</title>
+      <title>Tasks</title>
     </Helmet>
     <Box
       sx={{
@@ -21,7 +21,7 @@ const CustomerList = () => (
         <Box sx={{
           pt: 3
         }}>
-          <p>customers</p>
+          <p>tasks</p>
           {/* <CustomerListResults customers={]} /> */}
         </Box>
       </Container>

@@ -11,7 +11,7 @@ import AccountProfileDetails from '../Components/account/AccountProfileDetails';
 const Account = () => (
   <>
     <Helmet>
-      <title>Account | Material Kit</title>
+      <title>Account</title>
     </Helmet>
     <Box
       sx={{

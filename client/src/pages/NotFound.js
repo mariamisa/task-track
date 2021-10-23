@@ -9,7 +9,7 @@ import {
 const NotFound = () => (
   <>
     <Helmet>
-      <title>404 | Material Kit</title>
+      <title>404</title>
     </Helmet>
     <Box
       sx={{
@@ -17,7 +17,7 @@ const NotFound = () => (
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        justifyContent: 'center'
+        justifyContent: 'center',
       }}
     >
       <Container maxWidth="md">
@@ -37,7 +37,7 @@ const NotFound = () => (
           Whichever it is, try using the navigation
         </Typography>
         <Box sx={{
-          textAlign: 'center'
+          textAlign: 'center',
         }}>
           <img
             alt="Under development"

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@mui/material';
-import LatestOrders from '../Components/dashboard/LatestOrders';
-import LatestProducts from '../Components/dashboard/LatestProducts';
-import Sales from '../Components/dashboard/Sales';
-import TasksProgress from '../Components/dashboard/TasksProgress';
-import TotalProfit from '../Components/dashboard/TotalProfit';
-import TrafficByDevice from '../Components/dashboard/TrafficByDevice';
-import Budget from '../Components/dashboard/Budget';
+// import LatestOrders from '../Components/dashboard/LatestOrders';
+// import LatestProducts from '../Components/dashboard/LatestProducts';
+// import Sales from '../Components/dashboard/Sales';
+// import TasksProgress from '../Components/dashboard/TasksProgress';
+// import TotalProfit from '../Components/dashboard/TotalProfit';
+// import TrafficByDevice from '../Components/dashboard/TrafficByDevice';
+// import Budget from '../Components/dashboard/Budget';
 
 const Dashboard = () => (
   <>
@@ -33,7 +33,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <Budget />
+            {/* <Budget /> */}
           </Grid>
           <Grid
             item
@@ -51,7 +51,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TasksProgress />
+            {/* <TasksProgress /> */}
           </Grid>
           <Grid
             item
@@ -60,9 +60,9 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TotalProfit sx={{
+            {/* <TotalProfit sx={{
               height: '100%'
-            }} />
+            }} /> */}
           </Grid>
           <Grid
             item
@@ -71,7 +71,7 @@ const Dashboard = () => (
             xl={9}
             xs={12}
           >
-            <Sales />
+            {/* <Sales /> */}
           </Grid>
           <Grid
             item
@@ -80,9 +80,9 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TrafficByDevice sx={{
+            {/* <TrafficByDevice sx={{
               height: '100%'
-            }} />
+            }} /> */}
           </Grid>
           <Grid
             item
@@ -91,9 +91,9 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <LatestProducts sx={{
+            {/* <LatestProducts sx={{
               height: '100%'
-            }} />
+            }} /> */}
           </Grid>
           <Grid
             item
@@ -102,7 +102,7 @@ const Dashboard = () => (
             xl={9}
             xs={12}
           >
-            <LatestOrders />
+            {/* <LatestOrders /> */}
           </Grid>
         </Grid>
       </Container>

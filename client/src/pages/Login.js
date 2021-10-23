@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -7,21 +7,39 @@ import {
   Box,
   Button,
   Container,
-  Grid,
-  Link,
   TextField,
-  Typography
+  Typography,
+  CircularProgress,
+  Alert
 } from '@mui/material';
-import FacebookIcon from '../icons/Facebook';
-import GoogleIcon from '../icons/Google';
+import Axios from 'axios';
+
+import handleError from '../utils/handleError';
 
 const Login = () => {
   const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState();
+  const [error, setError] = useState();
+
+  const handelLogin = async (userData) => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      await Axios.post('/api/v1/signin', userData);
+      setIsLoading(false);
+      navigate('/app/dashboard', {
+        replace: true
+      });
+    } catch (err) {
+      handleError(setError, err);
+      setIsLoading(false);
+    }
+  };
   return (
     <>
       <Helmet>
-        <title>Login | Material Kit</title>
+        <title>Login</title>
       </Helmet>
       <Box
         sx={{
@@ -29,113 +47,60 @@ const Login = () => {
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <Container maxWidth="sm">
           <Formik
             initialValues={{
-              email: 'demo@devias.io',
-              password: 'Password123'
+              mobile: '',
+              password: ''
             }}
             validationSchema={Yup.object().shape({
-              email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-              password: Yup.string().max(255).required('Password is required')
+              mobile: Yup.string().min(8).max(255).required('mobile is required'),
+              password: Yup.string().min(8).max(255).required('Password is required')
             })}
-            onSubmit={() => {
-              navigate('/app/dashboard', {
-                replace: true
-              });
-            }}
+            onSubmit={ handelLogin }
           >
             {({
               errors,
               handleBlur,
               handleChange,
               handleSubmit,
-              isSubmitting,
               touched,
               values
             }) => (
               <form onSubmit={handleSubmit}>
-                <Box sx={{
+                <Box m={20} sx={{
                   mb: 3
                 }}>
                   <Typography
                     color="textPrimary"
                     variant="h2"
+                    textAlign="center"
                   >
                     Sign in
                   </Typography>
-                  <Typography
-                    color="textSecondary"
-                    gutterBottom
-                    variant="body2"
-                  >
-                    Sign in on the internal platform
-                  </Typography>
                 </Box>
-                <Grid
-                  container
-                  spacing={3}
-                >
-                  <Grid
-                    item
-                    xs={12}
-                    md={6}
-                  >
-                    <Button
-                      color="primary"
-                      fullWidth
-                      startIcon={<FacebookIcon />}
-                      onClick={handleSubmit}
-                      size="large"
-                      variant="contained"
-                    >
-                      Login with Facebook
-                    </Button>
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    md={6}
-                  >
-                    <Button
-                      fullWidth
-                      startIcon={<GoogleIcon />}
-                      onClick={handleSubmit}
-                      size="large"
-                      variant="contained"
-                    >
-                      Login with Google
-                    </Button>
-                  </Grid>
-                </Grid>
                 <Box
                   sx={{
                     pb: 1,
                     pt: 3
                   }}
                 >
-                  <Typography
-                    align="center"
-                    color="textSecondary"
-                    variant="body1"
-                  >
-                    or login with email address
-                  </Typography>
                 </Box>
                 <TextField
-                  error={Boolean(touched.email && errors.email)}
+                  error={Boolean(touched.mobile && errors.mobile)}
                   fullWidth
-                  helperText={touched.email && errors.email}
-                  label="Email Address"
+                  helperText={touched.mobile && errors.mobile}
+                  label="mobile Address"
                   margin="normal"
-                  name="email"
+                  name="mobile"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  type="email"
-                  value={values.email}
+                  type="text"
+                  value={values.mobile}
                   variant="outlined"
                 />
                 <TextField
@@ -156,16 +121,17 @@ const Login = () => {
                 }}>
                   <Button
                     color="primary"
-                    disabled={isSubmitting}
+                    disabled={isLoading}
                     fullWidth
                     size="large"
                     type="submit"
                     variant="contained"
                   >
-                    Sign in now
+                    {isLoading ? <CircularProgress color="secondary" /> : 'Sign In' }
                   </Button>
                 </Box>
-                <Typography
+                {error && <Alert severity="error">{error} </Alert> }
+               {/* <Typography
                   color="textSecondary"
                   variant="body1"
                 >
@@ -174,7 +140,7 @@ const Login = () => {
                   <Link component={RouterLink} to="/register" variant="h6" underline="hover">
                     Sign up
                   </Link>
-                </Typography>
+                </Typography> */}
               </form>
             )}
           </Formik>
