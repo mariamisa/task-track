@@ -21,4 +21,5 @@ router.patch('/users/settings', settingPermission, updateSetting);
 
 router.patch('/users/avatar', updateAvatarController);
 router.patch('/users/:id', userPermission, updateUserInfo);
+
 module.exports = router;
