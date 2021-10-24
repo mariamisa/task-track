@@ -9,12 +9,14 @@ const {
   addUserTask,
   updateUserTask,
   deleteUserTask,
+  getUsersTasks,
 } = require('../controller');
 const {
   taskPermission,
 } = require('../middleware/permission');
 
 router.get('/user/tasks', getUserTasks);
+router.get('/users/tasks', getUsersTasks);
 router.post('/user/tasks/:taskId', addUserTask);
 router.patch('/user/tasks/:taskId', updateUserTask);
 router.delete('/user/tasks/:userId/:taskId', deleteUserTask);
