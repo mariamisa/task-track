@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { element } from 'prop-types';
 import { Alert, CircularProgress, Container } from '@mui/material';
-import { AuthContext } from '../../Context/Authentication';
-import Header from '../../Components/Header';
+import { AuthContext } from '../Context/Authentication';
 // import useStyles from './style';
 
 function Layout({ children }) {
@@ -16,7 +15,6 @@ function Layout({ children }) {
       ) : (
         <Container maxWidth="sm">
           <p>layout</p>
-          <Header/>
           {children}
         </Container>
       )}
