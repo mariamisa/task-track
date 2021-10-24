@@ -8,6 +8,8 @@ const {
   updatePermissionController,
   updateSetting,
   getUserSetting,
+  updateAvatarController,
+  updateUserInfo,
 } = require('./user');
 
 const {
@@ -68,4 +70,6 @@ module.exports = {
   updateSetting,
   getUserSetting,
   getUsersTasks,
+  updateAvatarController,
+  updateUserInfo,
 };

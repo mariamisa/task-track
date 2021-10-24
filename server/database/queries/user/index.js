@@ -6,8 +6,9 @@ const updateTaskPermission = require('./updateTaskPermission');
 const updateVisitPermission = require('./updateVisitPermission');
 const updateSettingPermission = require('./updateSettingPermission');
 const updatePaymentPermission = require('./updateSettingPermission');
-
 const getUserPermission = require('./getUserPermission');
+const updateAvatarImage = require('./updateAvatar');
+const updateUserInfo = require('./updateUserInfo');
 
 module.exports = {
   createNewUser,
@@ -19,4 +20,6 @@ module.exports = {
   updateVisitPermission,
   updateSettingPermission,
   updatePaymentPermission,
+  updateAvatarImage,
+  updateUserInfo,
 };
