@@ -5,6 +5,8 @@ const logoutController = require('./logout');
 const updatePermissionController = require('./updatePermission');
 const updateSetting = require('./updateSetting');
 const getUserSetting = require('./getUserSetting');
+const updateAvatarController = require('./updateAvatar');
+const updateUserInfo = require('./updateUser');
 
 module.exports = {
   signupController,
@@ -14,4 +16,6 @@ module.exports = {
   updatePermissionController,
   updateSetting,
   getUserSetting,
+  updateAvatarController,
+  updateUserInfo,
 };
