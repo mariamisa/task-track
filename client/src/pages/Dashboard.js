@@ -1,108 +1,28 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@mui/material';
-// import LatestOrders from '../Components/dashboard/LatestOrders';
-// import LatestProducts from '../Components/dashboard/LatestProducts';
-// import Sales from '../Components/dashboard/Sales';
-// import TasksProgress from '../Components/dashboard/TasksProgress';
-// import TotalProfit from '../Components/dashboard/TotalProfit';
-// import TrafficByDevice from '../Components/dashboard/TrafficByDevice';
-// import Budget from '../Components/dashboard/Budget';
+import TaskTable from '../Components/TaskTable';
+import VisitTable from '../Components/VisitTable';
 
 const Dashboard = () => (
   <>
     <Helmet>
-      <title>Dashboard | Material Kit</title>
+      <title>Dashboard</title>
     </Helmet>
     <Box
       sx={{
         backgroundColor: 'background.default',
         minHeight: '100%',
-        py: 3
+        py: 3,
       }}
     >
       <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            {/* <Budget /> */}
+        <Grid container spacing={3}>
+          <Grid item sm={10}>
+            <TaskTable/>
           </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            {/* <TotalCustomers /> */}
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            {/* <TasksProgress /> */}
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            {/* <TotalProfit sx={{
-              height: '100%'
-            }} /> */}
-          </Grid>
-          <Grid
-            item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          >
-            {/* <Sales /> */}
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xl={3}
-            xs={12}
-          >
-            {/* <TrafficByDevice sx={{
-              height: '100%'
-            }} /> */}
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xl={3}
-            xs={12}
-          >
-            {/* <LatestProducts sx={{
-              height: '100%'
-            }} /> */}
-          </Grid>
-          <Grid
-            item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          >
-            {/* <LatestOrders /> */}
+          <Grid item sm={10}>
+            <VisitTable/>
           </Grid>
         </Grid>
       </Container>

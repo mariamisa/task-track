@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import DashboardLayout from './Components/DashboardLayout';
 import MainLayout from './Components/MainLayout';
 import Account from './pages/Account';
-import CustomerList from './pages/CustomerList';
+import TasksList from './pages/TasksList';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
@@ -20,7 +20,7 @@ const routes = [
         path: 'account', element: <Account />
       },
       {
-        path: 'customers', element: <CustomerList />
+        path: 'tasks', element: <TasksList />
       },
       {
         path: 'dashboard', element: <Dashboard />

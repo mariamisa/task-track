@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, Container } from '@mui/material';
 // import CustomerListResults from '../Components/customer/CustomerListResults';
-import CustomerListToolbar from '../Components/customer/CustomerListToolbar';
+import TasksListToolbar from '../Components/tasks/TasksListToolbar';
 
-const CustomerList = () => (
+const TasksList = () => (
   <>
     <Helmet>
       <title>Tasks</title>
@@ -17,16 +17,16 @@ const CustomerList = () => (
       }}
     >
       <Container maxWidth={false}>
-        <CustomerListToolbar />
+        <TasksListToolbar />
         <Box sx={{
           pt: 3
         }}>
           <p>tasks</p>
-          {/* <CustomerListResults customers={]} /> */}
+          {/* <TasksListResults customers={]} /> */}
         </Box>
       </Container>
     </Box>
   </>
 );
 
-export default CustomerList;
+export default TasksList;
