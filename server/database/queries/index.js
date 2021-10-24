@@ -8,6 +8,7 @@ const {
   updateVisitPermission,
   updateSettingPermission,
   updatePaymentPermission,
+  updateCommentPermission,
   updateAvatarImage,
   updateUserInfo,
 } = require('./user');
@@ -42,7 +43,11 @@ const {
 } = require('./payments');
 
 const {
-  getCommentsByTaskId, addComment, updateComment, deleteComment, getCommentById,
+  getCommentsByTaskId,
+  addComment,
+  updateComment,
+  deleteComment,
+  getCommentById,
 } = require('./comments');
 const {
   addSettingQuery,
@@ -91,4 +96,5 @@ module.exports = {
   getUsersTasksQuery,
   updateAvatarImage,
   updateUserInfo,
+  updateCommentPermission,
 };
