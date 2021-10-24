@@ -3,16 +3,11 @@ const { boomify } = require('../../utils');
 
 const addUserTask = async (req, res, next) => {
   try {
-    const { add } = req.permission;
     const { taskId } = req.params;
     const { id: userId } = req.user;
     const {
       date, deadline, visibility, status,
     } = req.body;
-
-    if (!add) {
-      throw boomify(401, 'you dont have permission to add this task to this user!');
-    }
     await addUserTaskQuery({
       taskId,
       userId,

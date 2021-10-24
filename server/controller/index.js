@@ -23,6 +23,7 @@ const {
   addUserTask,
   updateUserTask,
   deleteUserTask,
+  getUsersTasks,
 } = require('./user_task');
 
 const {
@@ -68,6 +69,7 @@ module.exports = {
   deleteComment,
   updateSetting,
   getUserSetting,
+  getUsersTasks,
   updateAvatarController,
   updateUserInfo,
 };

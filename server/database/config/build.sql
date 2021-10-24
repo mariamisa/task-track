@@ -36,9 +36,10 @@ CREATE TABLE tasks_users (
     task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL ,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deadline TIMESTAMP NOT NULL,
-    visibility boolean DEFAULT false,
+    visibility boolean DEFAULT 'true',
     status VARCHAR(55) NOT NULL DEFAULT 'onwork',
     check(status in ('done', 'cancled', 'onwork')),
+    check(visibility in ('false', 'true')),
     CONSTRAINT UC_user_task UNIQUE (user_id, task_id)
 );
 CREATE TABLE visits (

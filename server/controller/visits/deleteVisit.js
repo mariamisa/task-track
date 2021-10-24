@@ -5,10 +5,12 @@ const deleteVisit = async (req, res, next) => {
   try {
     const { id: visitId } = req.params;
     const { id: userId } = req.user;
+    const { delete: visitDeleteP } = req.permission;
 
-    const { rows: [visitData] } = await getVisitById({ userId, visitId });
-    if (userId !== (visitData ? visitData.user_id : -8)) {
-      throw (boomify(401, 'you dont have permission to delete this visit'));
+    const { rows: [visitOwner] } = await getVisitById(visitId);
+
+    if (!visitDeleteP && visitOwner.user_id !== userId) {
+      throw boomify(401, 'you dont have permission to delete comments');
     }
     await deleteVisitQuery({ userId, visitId });
     res.status(200).json({
