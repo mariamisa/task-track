@@ -16,13 +16,12 @@ const {
 } = require('../middleware/permission');
 
 router.get('/user/tasks', getUserTasks);
-router.get('/users/tasks', getUsersTasks);
 router.post('/user/tasks/:taskId', addUserTask);
 router.patch('/user/tasks/:taskId', updateUserTask);
 router.delete('/user/tasks/:userId/:taskId', deleteUserTask);
 
-// router.use(taskPermission);
 router.get('/tasks', taskPermission, getTasks);
+router.get('/users/tasks', taskPermission, getUsersTasks);
 router.post('/tasks', taskPermission, addTask);
 router.delete('/tasks/:id', taskPermission, deleteTask);
 router.patch('/tasks/:id', taskPermission, updateTask);

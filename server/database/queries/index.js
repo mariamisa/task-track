@@ -19,8 +19,9 @@ const {
 const {
   getTasksByUserId,
   addUserTaskQuery,
-  updateUserTask,
+  updateUserTaskQuery,
   deleteUserTaskQuery,
+  getUsersTasksQuery,
 } = require('./user_task');
 
 const {
@@ -29,6 +30,7 @@ const {
   addNewVisit,
   updateVisitQuery,
   deleteVisit,
+  getVisitById,
 } = require('./visits');
 const {
   getAllPayment,
@@ -58,7 +60,7 @@ module.exports = {
   deleteTaskQuery,
   updateTaskQuery,
   addUserTaskQuery,
-  updateUserTask,
+  updateUserTaskQuery,
   deleteUserTaskQuery,
   getAllVisits,
   getUserVisits,
@@ -83,4 +85,6 @@ module.exports = {
   deleteSettingQuery,
   updateSettingQuery,
   getUserSettingQuery,
+  getUsersTasksQuery,
+  getVisitById,
 };
