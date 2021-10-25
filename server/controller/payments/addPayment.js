@@ -10,7 +10,7 @@ const addPayment = async (req, res, next) => {
       throw boomify(401, 'you dont have permission to add payment!');
     }
     const paymentData = { amount, month, userId };
-    if (req.files && req.files.attachments && req.files.attachments) {
+    if (req.files && req.files.attachments) {
       const urls = await addFilesToCloudenary(req.file.attachments);
       paymentData.attachments = urls;
     }
