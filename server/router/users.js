@@ -14,7 +14,7 @@ const {
 const { userPermission, settingPermission } = require('../middleware/permission');
 
 router.get('/is-auth', isAuthController);
-router.post('/signup', userPermission, signupValidation, signupController);
+router.post('/users', userPermission, signupValidation, signupController);
 router.patch('/users/:id/permission/:permissionType', userPermission, updatePermissionController);
 
 router.get('/users/settings', settingPermission, getUserSetting);
