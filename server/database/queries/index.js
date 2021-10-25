@@ -11,6 +11,7 @@ const {
   updateCommentPermission,
   updateAvatarImage,
   updateUserInfo,
+  updateAttach,
 } = require('./user');
 
 const {
@@ -97,4 +98,5 @@ module.exports = {
   updateAvatarImage,
   updateUserInfo,
   updateCommentPermission,
+  updateAttach,
 };

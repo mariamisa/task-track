@@ -7,6 +7,7 @@ const updateSetting = require('./updateSetting');
 const getUserSetting = require('./getUserSetting');
 const updateAvatarController = require('./updateAvatar');
 const updateUserInfo = require('./updateUser');
+const updateAttachController = require('./updateAttach');
 
 module.exports = {
   signupController,
@@ -18,4 +19,5 @@ module.exports = {
   getUserSetting,
   updateAvatarController,
   updateUserInfo,
+  updateAttachController,
 };
