@@ -10,10 +10,12 @@ const {
   updateAvatarController,
   updateUserInfo,
   updateAttachController,
+  getUsers,
 } = require('../controller');
 const { userPermission, settingPermission } = require('../middleware/permission');
 
 router.get('/is-auth', isAuthController);
+router.get('/users', userPermission, getUsers);
 router.post('/users', userPermission, signupValidation, signupController);
 router.patch('/users/:id/permission/:permissionType', userPermission, updatePermissionController);
 

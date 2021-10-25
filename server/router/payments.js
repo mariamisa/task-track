@@ -8,7 +8,7 @@ const {
 } = require('../middleware/permission');
 
 router.get('/payments', paymentPermission, getPayments);
-router.post('/payments', paymentPermission, addPayment);
+router.post('/payments/:userId', paymentPermission, addPayment);
 router.patch('/payments/:id', paymentPermission, updatePayment);
 router.patch('/payments/:id/attachments', paymentPermission, updateAttachmentsPayment);
 router.delete('/payments/:id', paymentPermission, deletePayment);

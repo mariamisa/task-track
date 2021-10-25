@@ -11,6 +11,7 @@ const {
   updateAvatarController,
   updateUserInfo,
   updateAttachController,
+  getUsers,
 } = require('./user');
 
 const {
@@ -81,4 +82,5 @@ module.exports = {
   updateTaskAttachController,
   updateProtocolController,
   updateAttachmentsPayment,
+  getUsers,
 };
