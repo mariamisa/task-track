@@ -4,11 +4,6 @@ const { updateAttach } = require('../../database/queries');
 const updateAttachController = async (req, res, next) => {
   try {
     const { id } = req.user;
-    const { edit } = req.permission;
-
-    if (!edit) {
-      throw boomify(401, 'you dont have permission to update task!');
-    }
     if (req.files && req.files.attach) {
       const { attach } = req.files;
       const urls = await addFilesToCloudenary(attach);

@@ -43,6 +43,7 @@ const {
   addNewPayment,
   deletePaymentQuery,
   updatePaymentQuery,
+  updateAttachmentsPaymentQ,
 } = require('./payments');
 
 const {
@@ -103,4 +104,5 @@ module.exports = {
   updateAttach,
   updateTaskAttach,
   updateTaskProtocol,
+  updateAttachmentsPaymentQ,
 };

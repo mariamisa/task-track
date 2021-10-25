@@ -35,7 +35,7 @@ const {
 } = require('./visits');
 
 const {
-  getPayments, addPayment, updatePayment, deletePayment,
+  getPayments, addPayment, updatePayment, deletePayment, updateAttachmentsPayment,
 } = require('./payments');
 
 const {
@@ -80,4 +80,5 @@ module.exports = {
   updateAttachProtocolController,
   updateTaskAttachController,
   updateProtocolController,
+  updateAttachmentsPayment,
 };

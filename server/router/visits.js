@@ -8,10 +8,10 @@ const {
 } = require('../middleware/permission');
 
 router.get('/user/visits', getUserVisits);
+router.post('/visits', addVisit);
+router.patch('/visits/:id', updateVisit);
 
 router.get('/visits', visitPermission, getVisits);
-router.post('/visits', visitPermission, addVisit);
-router.patch('/visits/:id', visitPermission, updateVisit);
 router.delete('/visits/:id', visitPermission, deleteVisit);
 
 module.exports = router;
