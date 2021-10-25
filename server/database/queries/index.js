@@ -12,6 +12,7 @@ const {
   updateAvatarImage,
   updateUserInfo,
   updateAttach,
+  selectAllUsers,
 } = require('./user');
 
 const {
@@ -105,4 +106,5 @@ module.exports = {
   updateTaskAttach,
   updateTaskProtocol,
   updateAttachmentsPaymentQ,
+  selectAllUsers,
 };

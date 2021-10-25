@@ -11,6 +11,7 @@ const getUserPermission = require('./getUserPermission');
 const updateAvatarImage = require('./updateAvatar');
 const updateUserInfo = require('./updateUserInfo');
 const updateAttach = require('./updateAttach');
+const selectAllUsers = require('./getAllUsers');
 
 module.exports = {
   createNewUser,
@@ -26,4 +27,5 @@ module.exports = {
   updateUserInfo,
   updateCommentPermission,
   updateAttach,
+  selectAllUsers,
 };

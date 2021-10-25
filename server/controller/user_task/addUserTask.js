@@ -3,8 +3,7 @@ const { boomify } = require('../../utils');
 
 const addUserTask = async (req, res, next) => {
   try {
-    const { taskId } = req.params;
-    const { id: userId } = req.user;
+    const { taskId, userId } = req.params;
     const {
       date, deadline, visibility, status,
     } = req.body;
