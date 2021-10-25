@@ -19,6 +19,8 @@ const {
   addNewTask,
   deleteTaskQuery,
   updateTaskQuery,
+  updateTaskAttach,
+  updateTaskProtocol,
 } = require('./tasks');
 const {
   getTasksByUserId,
@@ -99,4 +101,6 @@ module.exports = {
   updateUserInfo,
   updateCommentPermission,
   updateAttach,
+  updateTaskAttach,
+  updateTaskProtocol,
 };

@@ -6,7 +6,7 @@ const updateTask = async (req, res, next) => {
     const { edit } = req.permission;
     const { id } = req.params;
     const {
-      name, protocol, attach, type,
+      name, type,
     } = req.body;
 
     if (!edit) {
@@ -15,8 +15,6 @@ const updateTask = async (req, res, next) => {
     await updateTaskQuery({
       id,
       name,
-      protocol,
-      attach,
       type,
     });
 

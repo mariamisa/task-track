@@ -1,7 +1,7 @@
 const connection = require('../../config/connection');
 
 const addNewTask = ({
-  name, protocol, attach, type,
+  name, protocol = '', attach = '', type = 'normal',
 }) => {
   const sql = {
     text: 'INSERT INTO tasks (name,protocol, attach, type) VALUES ($1, $2, $3,$4)',

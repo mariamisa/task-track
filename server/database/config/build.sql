@@ -19,8 +19,8 @@ CREATE TABLE users (
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    protocol VARCHAR(255) NOT NULL,
-    attach TEXT NOT NULL,
+    protocol TEXT,
+    attach TEXT,
     type VARCHAR(55) DEFAULT 'normal',
     check(type in ('normal', 'settion', 'other'))
 );

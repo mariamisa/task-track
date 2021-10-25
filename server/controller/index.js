@@ -18,6 +18,9 @@ const {
   addTask,
   deleteTask,
   updateTask,
+  updateAttachProtocolController,
+  updateTaskAttachController,
+  updateProtocolController,
 } = require('./tasks');
 const {
   getUserTasks,
@@ -74,4 +77,7 @@ module.exports = {
   updateAvatarController,
   updateUserInfo,
   updateAttachController,
+  updateAttachProtocolController,
+  updateTaskAttachController,
+  updateProtocolController,
 };

@@ -20,7 +20,7 @@ router.patch('/users/:id/permission/:permissionType', userPermission, updatePerm
 router.get('/users/settings', settingPermission, getUserSetting);
 router.patch('/users/settings', settingPermission, updateSetting);
 
-router.patch('/users/avatar', updateAvatarController);
+router.patch('/users/avatar', userPermission, updateAvatarController);
 router.patch('/users/information/:id', userPermission, updateUserInfo);
 router.patch('/users/attach', updateAttachController);
 

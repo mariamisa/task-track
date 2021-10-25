@@ -1,19 +1,18 @@
 const { addFilesToCloudenary, toJson, boomify } = require('../../utils');
-const { updateAttach } = require('../../database/queries');
+const { updateTaskAttach } = require('../../database/queries');
 
 const updateAttachController = async (req, res, next) => {
   try {
-    const { id } = req.user;
+    const { id } = req.params;
     const { edit } = req.permission;
 
     if (!edit) {
-      throw boomify(401, 'you dont have permission to update task!');
+      throw boomify(401, 'you dont have permission to update task info!');
     }
     if (req.files && req.files.attach) {
       const { attach } = req.files;
       const urls = await addFilesToCloudenary(attach);
-      await updateAttach({ urls: toJson(urls), id });
-
+      await updateTaskAttach({ urls: toJson(urls), id });
       res.json({
         statusCode: 200,
         message: 'attach added successfully',

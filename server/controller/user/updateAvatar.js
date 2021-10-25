@@ -5,6 +5,11 @@ const { updateAvatarImage } = require('../../database/queries');
 const updateAvatar = async (req, res, next) => {
   try {
     const { id } = req.user;
+    const { edit } = req.permission;
+
+    if (!edit) {
+      throw boomify(401, 'you dont have permission to update task!');
+    }
     if (req.files && req.files.avatar) {
       const { avatar } = req.files;
       if (avatar.type.includes('image/')) {
