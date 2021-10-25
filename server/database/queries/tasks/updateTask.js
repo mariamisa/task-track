@@ -1,11 +1,11 @@
 const connection = require('../../config/connection');
 
 const updateTask = ({
-  name, protocol, attatch, type, id,
+  name, type, id,
 }) => {
   const sql = {
-    text: 'UPDATE tasks SET name = COALESCE($1,name),protocol = COALESCE($2,protocol),attatch= COALESCE($3,attatch),type= COALESCE($4,type) WHERE id=$5;',
-    values: [name, protocol, attatch, type, id],
+    text: 'UPDATE tasks SET name = COALESCE($1,name),type= COALESCE($2,type) WHERE id=$3;',
+    values: [name, type, id],
   };
   return connection.query(sql);
 };

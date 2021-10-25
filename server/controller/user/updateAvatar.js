@@ -13,13 +13,13 @@ const updateAvatar = async (req, res, next) => {
 
         res.json({
           statusCode: 200,
-          message: 'Image added successfully',
+          message: 'avatar added successfully',
         });
       } else {
         throw boomify(400, 'choose image only');
       }
     } else {
-      throw boomify(400, 'uploading fail/image is required field');
+      throw boomify(400, 'uploading fail/avatar is required field');
     }
   } catch (err) {
     if (err.message === 'upload image error') {

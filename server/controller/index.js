@@ -10,6 +10,7 @@ const {
   getUserSetting,
   updateAvatarController,
   updateUserInfo,
+  updateAttachController,
 } = require('./user');
 
 const {
@@ -17,6 +18,9 @@ const {
   addTask,
   deleteTask,
   updateTask,
+  updateAttachProtocolController,
+  updateTaskAttachController,
+  updateProtocolController,
 } = require('./tasks');
 const {
   getUserTasks,
@@ -31,7 +35,7 @@ const {
 } = require('./visits');
 
 const {
-  getPayments, addPayment, updatePayment, deletePayment,
+  getPayments, addPayment, updatePayment, deletePayment, updateAttachmentsPayment,
 } = require('./payments');
 
 const {
@@ -72,4 +76,9 @@ module.exports = {
   getUsersTasks,
   updateAvatarController,
   updateUserInfo,
+  updateAttachController,
+  updateAttachProtocolController,
+  updateTaskAttachController,
+  updateProtocolController,
+  updateAttachmentsPayment,
 };

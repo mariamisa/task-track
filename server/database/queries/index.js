@@ -11,6 +11,7 @@ const {
   updateCommentPermission,
   updateAvatarImage,
   updateUserInfo,
+  updateAttach,
 } = require('./user');
 
 const {
@@ -18,6 +19,8 @@ const {
   addNewTask,
   deleteTaskQuery,
   updateTaskQuery,
+  updateTaskAttach,
+  updateTaskProtocol,
 } = require('./tasks');
 const {
   getTasksByUserId,
@@ -40,6 +43,7 @@ const {
   addNewPayment,
   deletePaymentQuery,
   updatePaymentQuery,
+  updateAttachmentsPaymentQ,
 } = require('./payments');
 
 const {
@@ -97,4 +101,8 @@ module.exports = {
   updateAvatarImage,
   updateUserInfo,
   updateCommentPermission,
+  updateAttach,
+  updateTaskAttach,
+  updateTaskProtocol,
+  updateAttachmentsPaymentQ,
 };

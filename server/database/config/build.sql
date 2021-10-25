@@ -5,22 +5,22 @@ CREATE TABLE users (
     username VARCHAR(55) NOT NULL,
     mobile VARCHAR(255) UNIQUE NOT NULL,
     password text NOT NULL,
-    country VARCHAR(55) NOT NULL,
+    country VARCHAR(55),
     user_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     task_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     visit_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     payment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     setting_permission text[] NOT NULL DEFAULT Array['{"view":false,"edit":false}'],
     comment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
-    attatch VARCHAR(55),
+    attach TEXT,
     avatar TEXT,
     job_title VARCHAR(255)
 );
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    protocol VARCHAR(255) NOT NULL,
-    attatch VARCHAR(255) NOT NULL,
+    protocol TEXT,
+    attach TEXT,
     type VARCHAR(55) DEFAULT 'normal',
     check(type in ('normal', 'settion', 'other'))
 );

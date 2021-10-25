@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const {
-  getPayments, addPayment, updatePayment, deletePayment,
+  getPayments, addPayment, updatePayment, deletePayment, updateAttachmentsPayment,
 } = require('../controller');
 const {
   paymentPermission,
@@ -10,6 +10,7 @@ const {
 router.get('/payments', paymentPermission, getPayments);
 router.post('/payments', paymentPermission, addPayment);
 router.patch('/payments/:id', paymentPermission, updatePayment);
+router.patch('/payments/:id/attachments', paymentPermission, updateAttachmentsPayment);
 router.delete('/payments/:id', paymentPermission, deletePayment);
 
 module.exports = router;
