@@ -1,11 +1,11 @@
 const connection = require('../../config/connection');
 
 const addNewTask = ({
-  name, protocol, attatch, type,
+  name, protocol, attach, type,
 }) => {
   const sql = {
-    text: 'INSERT INTO tasks (name,protocol, attatch, type) VALUES ($1, $2, $3,$4)',
-    values: [name, protocol, attatch, type],
+    text: 'INSERT INTO tasks (name,protocol, attach, type) VALUES ($1, $2, $3,$4)',
+    values: [name, protocol, attach, type],
   };
   return connection.query(sql);
 };

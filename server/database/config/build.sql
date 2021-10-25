@@ -12,7 +12,7 @@ CREATE TABLE users (
     payment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
     setting_permission text[] NOT NULL DEFAULT Array['{"view":false,"edit":false}'],
     comment_permission text[] NOT NULL DEFAULT Array['{"view":false,"add":false,"edit":false,"delete":false}'],
-    attatch TEXT,
+    attach TEXT,
     avatar TEXT,
     job_title VARCHAR(255)
 );
@@ -20,7 +20,7 @@ CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     protocol VARCHAR(255) NOT NULL,
-    attatch VARCHAR(255) NOT NULL,
+    attach TEXT NOT NULL,
     type VARCHAR(55) DEFAULT 'normal',
     check(type in ('normal', 'settion', 'other'))
 );
