@@ -5,7 +5,7 @@ const addUserTask = async (req, res, next) => {
   try {
     const { taskId, userId } = req.params;
     const {
-      date, deadline, visibility,
+      date, deadline, visibility, status,
     } = req.body;
     await addUserTaskQuery({
       taskId,
@@ -13,6 +13,7 @@ const addUserTask = async (req, res, next) => {
       date,
       deadline,
       visibility,
+      status,
     });
 
     res.status(200).json({
