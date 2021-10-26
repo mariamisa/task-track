@@ -1,7 +1,7 @@
 const connection = require('../../config/connection');
 
 const updatePayment = ({
-  amount, month, id,
+  amount, month = new Date().getMonth(), id,
 }) => {
   const sql = {
     text: 'UPDATE payments SET amount = COALESCE($1,amount),month= COALESCE($2,month) WHERE id=$3;',
