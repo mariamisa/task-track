@@ -49,6 +49,7 @@ const updateUserPermission = async (req, res, next) => {
         await updateCommentPermission({ permissionToString, id });
         break;
       default:
+        throw boomify(400, 'permissionType values(user,task,visit,setting,payment,comment)');
     }
 
     res.status(200).json({

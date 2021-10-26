@@ -21,7 +21,7 @@ const addUserTask = async (req, res, next) => {
       message: 'task added successfully for this user',
     });
   } catch (error) {
-    if (error.constraint === 'tasks_users_user_id_key') {
+    if (error.constraint === 'uc_user_task') {
       next(boomify(400, 'you already add this task'));
     }
     next(error);
