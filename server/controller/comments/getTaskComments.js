@@ -2,7 +2,7 @@ const { getCommentsByTaskId } = require('../../database/queries');
 
 const getTaskComments = async (req, res, next) => {
   try {
-    const { id: taskId } = req.params;
+    const { taskId } = req.params;
 
     const { rows } = await getCommentsByTaskId(taskId);
     res.status(200).json({

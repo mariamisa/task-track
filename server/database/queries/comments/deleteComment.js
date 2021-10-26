@@ -1,9 +1,9 @@
 const connection = require('../../config/connection');
 
-const deleteComment = (id) => {
+const deleteComment = (commentId) => {
   const sql = {
     text: 'DELETE FROM comments WHERE id=$1',
-    values: [id],
+    values: [commentId],
   };
   return connection.query(sql);
 };

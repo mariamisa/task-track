@@ -7,9 +7,9 @@ const {
   commentPermission,
 } = require('../middleware/permission');
 
-router.get('/task/:id/comments', getTaskComments); // get all comment for specific task
-router.post('/comments/:taskId', commentPermission, addComment);
-router.patch('/comments/:id', commentPermission, updateComment);
-router.delete('/comments/:id', commentPermission, deleteComment);
+router.get('/task/:taskId/comments', getTaskComments); // get all comment for specific task
+router.post('/task/:taskId/comments', commentPermission, addComment);
+router.patch('/task/comments/:commentId', commentPermission, updateComment);
+router.delete('/task/comments/:commentId', commentPermission, deleteComment);
 
 module.exports = router;
