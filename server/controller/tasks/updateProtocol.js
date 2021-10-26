@@ -9,7 +9,7 @@ const updateProtocolController = async (req, res, next) => {
     if (!edit) {
       throw boomify(401, 'you dont have permission to update task info!');
     }
-    if (req.files && req.files.protocol) {
+    if (req.files && req.files.protocol && req.files.protocol.length > 0) {
       const { protocol } = req.files;
       const urls = await addFilesToCloudenary(protocol);
       await updateTaskProtocol({ urls: toJson(urls), id });

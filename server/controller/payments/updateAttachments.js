@@ -9,7 +9,7 @@ const updateAttachments = async (req, res, next) => {
     if (!edit) {
       throw boomify(401, 'you dont have permission to update task!');
     }
-    if (req.files && req.files.attach) {
+    if (req.files && req.files.attachments && req.files.attachments.length > 0) {
       const { attachments } = req.files;
       const urls = await addFilesToCloudenary(attachments);
       await updateAttachmentsPaymentQ({ urls: toJson(urls), id });

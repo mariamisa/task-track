@@ -9,7 +9,7 @@ const updateAttachController = async (req, res, next) => {
     if (!edit) {
       throw boomify(401, 'you dont have permission to update task info!');
     }
-    if (req.files && req.files.attach) {
+    if (req.files && req.files.attach && req.files.attach.length > 0) {
       const { attach } = req.files;
       const urls = await addFilesToCloudenary(attach);
       await updateTaskAttach({ urls: toJson(urls), id });
