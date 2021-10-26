@@ -4,7 +4,7 @@ const { updateAttach } = require('../../database/queries');
 const updateAttachController = async (req, res, next) => {
   try {
     const { id } = req.user;
-    if (req.files && req.files.attach) {
+    if (req.files && req.files.attach && req.files.attach.length > 0) {
       const { attach } = req.files;
       const urls = await addFilesToCloudenary(attach);
       await updateAttach({ urls: toJson(urls), id });
