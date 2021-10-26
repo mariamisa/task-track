@@ -52,8 +52,8 @@ As a user, I can see all tasks and visited, and add my own tasks/visits, and edi
 
 
 ## DATABASE Schema :file_cabinet:
-[dbdigram]()
-![](https://i.imgur.com/jGp1Gbf.png)
+[dbdigram](https://dbdiagram.io/d/6178472bfa17df5ea6700abd)
+![Untitled](https://user-images.githubusercontent.com/47949938/138938070-d4896a46-26db-450d-b367-74a20e41a09d.png)
 
 ## Installation Guide :
 
