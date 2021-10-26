@@ -3,7 +3,7 @@ const { updateAttachmentsPaymentQ } = require('../../database/queries');
 
 const updateAttachments = async (req, res, next) => {
   try {
-    const { id } = req.user;
+    const { id } = req.params;
     const { edit } = req.permission;
 
     if (!edit) {
@@ -19,7 +19,7 @@ const updateAttachments = async (req, res, next) => {
         message: 'attachments added successfully',
       });
     } else {
-      throw boomify(400, 'uploading fail/attachments is required field');
+      throw boomify(400, 'uploading fail/attachments is required field || upload more than one file');
     }
   } catch (err) {
     if (err.message === 'upload attachments error') {

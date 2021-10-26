@@ -1,7 +1,7 @@
 const connection = require('../../config/connection');
 
 const addUserTask = ({
-  date, deadline, visibility, status = 'onwork', userId, taskId,
+  date = new Date().toISOString(), deadline, visibility = false, status = 'onwork', userId, taskId,
 }) => {
   const sql = {
     text: 'INSERT INTO tasks_users (date, deadline, visibility, status, user_id, task_id) VALUES ($1, $2, $3,$4,$5,$6)',

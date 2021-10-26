@@ -4,11 +4,11 @@ const { boomify } = require('../../utils');
 const updateComment = async (req, res, next) => {
   try {
     const { edit } = req.permission;
-    const { id } = req.params;
+    const { commentId } = req.params;
     const { id: userId } = req.user;
     const { comment } = req.body;
 
-    const { rows } = await getCommentById(id);
+    const { rows } = await getCommentById(commentId);
     const [{ user_id: commentOwner }] = rows;
 
     if (!edit && commentOwner !== userId) {
@@ -17,7 +17,7 @@ const updateComment = async (req, res, next) => {
 
     await updateCommentQuery({
       comment,
-      id,
+      commentId,
     });
 
     res.status(200).json({
