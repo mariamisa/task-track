@@ -1,7 +1,7 @@
 const connection = require('../../config/connection');
 
 const updateUserTask = ({
-  status = 'onwork', userId, taskId,
+  status, userId, taskId,
 }) => {
   const sql = {
     text: 'UPDATE tasks_users SET status= COALESCE($1,status) WHERE user_id=$2 AND task_id=$3 RETURNING *',
