@@ -4,11 +4,21 @@ const { boomify, addFilesToCloudenary } = require('../../utils');
 const addTask = async (req, res, next) => {
   try {
     const { add } = req.permission;
-    const { name, type } = req.body;
+    const {
+      name, type, date,
+      deadline,
+      visibility,
+    } = req.body;
     if (!add) {
       throw boomify(401, 'you dont have permission to add task!');
     }
-    const taskData = { name, type };
+    const taskData = {
+      name,
+      type,
+      date,
+      deadline,
+      visibility,
+    };
     if (req.files && req.files.protocol && req.files.protocol.length > 0) {
       const urls = await addFilesToCloudenary(req.files.protocol);
       taskData.protocol = urls;
