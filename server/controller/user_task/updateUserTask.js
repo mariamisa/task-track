@@ -4,14 +4,11 @@ const updateUserTask = async (req, res, next) => {
   try {
     const { taskId, userId } = req.params;
     const {
-      date, deadline, visibility, status,
+      status,
     } = req.body;
     await updateUserTaskQuery({
       taskId,
       userId,
-      date,
-      deadline,
-      visibility,
       status,
     });
 

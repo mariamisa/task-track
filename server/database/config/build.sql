@@ -22,6 +22,10 @@ CREATE TABLE tasks (
     protocol TEXT,
     attach TEXT,
     type VARCHAR(55) DEFAULT 'normal',
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deadline TIMESTAMP NOT NULL,
+    visibility boolean DEFAULT 'true',
+    check(visibility in ('false', 'true')),
     check(type in ('normal', 'settion', 'other'))
 );
 CREATE TABLE comments(
@@ -34,12 +38,8 @@ CREATE TABLE tasks_users (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE NOT NULL ,
     task_id INTEGER REFERENCES tasks(id) ON UPDATE CASCADE NOT NULL ,
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    deadline TIMESTAMP NOT NULL,
-    visibility boolean DEFAULT 'true',
     status VARCHAR(55) NOT NULL DEFAULT 'onwork',
     check(status in ('done', 'cancled', 'onwork')),
-    check(visibility in ('false', 'true')),
     CONSTRAINT UC_user_task UNIQUE (user_id, task_id)
 );
 CREATE TABLE visits (
