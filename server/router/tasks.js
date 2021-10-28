@@ -12,6 +12,7 @@ const {
   getUsersTasks,
   updateTaskAttachController,
   updateProtocolController,
+  getUsersTask,
 } = require('../controller');
 const {
   taskPermission,
@@ -24,6 +25,7 @@ router.patch('/tasks/:id', taskPermission, updateTask);
 router.patch('/tasks/:id/attach', taskPermission, updateTaskAttachController);
 router.patch('/tasks/:id/protocol', taskPermission, updateProtocolController);
 
+router.get('/task/:taskId/users', getUsersTask);
 router.get('/users/tasks', taskPermission, getUsersTasks);
 
 router.get('/user/tasks', getUserTasks);
