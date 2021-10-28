@@ -22,7 +22,7 @@ const signupController = async (req, res, next) => {
       avatar: `https://avatar.oxro.io/avatar.svg?name=${username[0]}`,
       password: hashedPassword,
     });
-    const { id } = newUserData[0];
+    const { id } = newUserData;
     const token = await promiseJWT(sign, {
       id,
       username,
