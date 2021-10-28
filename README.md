@@ -27,16 +27,9 @@ As a user, I can see all tasks and visited, and add my own tasks/visits, and edi
 * I can log in into the app.
 * I can see all the compony managers and employee's.
 * I can add new managers/compony to the app.
+* I can give the users permissions to add/edit/update/delete tasks ,visits,payments,settings,comments
 
-***As a compony manager :***
-* I can log in into the app.
-* I can see all employee's on my componay.
-* I can see all employee's tasks and visits.
-* I can add new employee.
-* I can add new task.
-* I can add edit my setting (change the color and set the notification date and km cost).
-
-***As a employee :***
+***As a user :***
 * I can log in into the app.
 * I can see all tasks and visits.
 * I can add new task to me.
@@ -45,6 +38,11 @@ As a user, I can see all tasks and visited, and add my own tasks/visits, and edi
 * I can edit my task visibility.
 * I need to recive notification for my task or visit.
 * I need to recive money for my completed tasks/visited.
+* I can see all employee's on my componay.
+* I can see all employee's tasks and visits.
+* I can add new task.
+* I can add edit my setting (change the color and set the notification date and km cost).
+* I can add comment to any task i want
 
 
 ## Prototype :art:
@@ -53,7 +51,7 @@ As a user, I can see all tasks and visited, and add my own tasks/visits, and edi
 
 ## DATABASE Schema :file_cabinet:
 [dbdigram](https://dbdiagram.io/d/6178472bfa17df5ea6700abd)
-![Untitled](https://user-images.githubusercontent.com/47949938/138938070-d4896a46-26db-450d-b367-74a20e41a09d.png)
+![Untitled (1)](https://user-images.githubusercontent.com/47949938/139234844-1b0fba33-2275-4142-b2fb-5de16e8d319a.png)
 
 ## Installation Guide :
 
