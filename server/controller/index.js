@@ -29,6 +29,7 @@ const {
   updateUserTask,
   deleteUserTask,
   getUsersTasks,
+  getUsersTask,
 } = require('./user_task');
 
 const {
@@ -83,4 +84,5 @@ module.exports = {
   updateProtocolController,
   updateAttachmentsPayment,
   getUsers,
+  getUsersTask,
 };

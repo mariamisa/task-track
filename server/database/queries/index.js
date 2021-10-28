@@ -29,6 +29,7 @@ const {
   updateUserTaskQuery,
   deleteUserTaskQuery,
   getUsersTasksQuery,
+  getAllUsersTask,
 } = require('./user_task');
 
 const {
@@ -107,4 +108,5 @@ module.exports = {
   updateTaskProtocol,
   updateAttachmentsPaymentQ,
   selectAllUsers,
+  getAllUsersTask,
 };
