@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const router = require('express').Router();
 
 const {
@@ -10,7 +11,7 @@ const {
 } = require('../middleware/validation');
 
 router.post('/signin', loginValidation, loginController);
-router.post('/signup', signupValidation, signupController);
+// router.post('/signup', signupValidation, signupController);
 
 router.get('/logout', logoutController);
 
