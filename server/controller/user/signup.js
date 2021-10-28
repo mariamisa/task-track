@@ -1,9 +1,8 @@
 const { hash } = require('bcrypt');
-const { sign } = require('jsonwebtoken');
 
 const { getUserByMobile, createNewUser } = require('../../database/queries');
 
-const { boomify, promiseJWT } = require('../../utils');
+const { boomify } = require('../../utils');
 
 const signupController = async (req, res, next) => {
   try {
@@ -17,20 +16,15 @@ const signupController = async (req, res, next) => {
 
     const hashedPassword = await hash(password, 10);
 
-    const { rows: [newUserData] } = await createNewUser({
+    await createNewUser({
       ...req.body,
       avatar: `https://avatar.oxro.io/avatar.svg?name=${username[0]}`,
       password: hashedPassword,
     });
-    const { id } = newUserData;
-    const token = await promiseJWT(sign, {
-      id,
-      username,
-    });
 
-    res.status(201).cookie('token', token).json({
+    res.status(201).json({
       statusCode: 201,
-      message: 'Signed up successfully',
+      message: 'user created successfully',
     });
   } catch (error) {
     next(error);
