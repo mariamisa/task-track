@@ -29,8 +29,8 @@ router.get('/task/:taskId/users', getUsersTask);
 router.get('/users/tasks', taskPermission, getUsersTasks);
 
 router.get('/user/tasks', getUserTasks);
-router.post('/user/:userId/tasks/:taskId', addUserTask);
-router.patch('/user/:userId/tasks/:taskId', updateUserTask);
-router.delete('/user/:userId/tasks/:taskId', deleteUserTask);
+router.post('/user/:userId/tasks/:taskId', taskPermission, addUserTask);
+router.patch('/user/:userId/tasks/:taskId', taskPermission, updateUserTask);
+router.delete('/user/:userId/tasks/:taskId', taskPermission, deleteUserTask);
 
 module.exports = router;
