@@ -23,6 +23,7 @@ const {
   updateTaskQuery,
   updateTaskAttach,
   updateTaskProtocol,
+  getTaskById,
 } = require('./tasks');
 const {
   getTasksByUserId,
@@ -111,4 +112,5 @@ module.exports = {
   selectAllUsers,
   getAllUsersTask,
   deleteUserById,
+  getTaskById,
 };
