@@ -12,6 +12,7 @@ const updateAvatarImage = require('./updateAvatar');
 const updateUserInfo = require('./updateUserInfo');
 const updateAttach = require('./updateAttach');
 const selectAllUsers = require('./getAllUsers');
+const deleteUserById = require('./deleteUserById');
 
 module.exports = {
   createNewUser,
@@ -28,4 +29,5 @@ module.exports = {
   updateCommentPermission,
   updateAttach,
   selectAllUsers,
+  deleteUserById,
 };

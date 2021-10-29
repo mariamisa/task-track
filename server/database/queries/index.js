@@ -13,6 +13,7 @@ const {
   updateUserInfo,
   updateAttach,
   selectAllUsers,
+  deleteUserById,
 } = require('./user');
 
 const {
@@ -109,4 +110,5 @@ module.exports = {
   updateAttachmentsPaymentQ,
   selectAllUsers,
   getAllUsersTask,
+  deleteUserById,
 };

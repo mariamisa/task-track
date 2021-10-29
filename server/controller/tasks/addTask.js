@@ -30,7 +30,7 @@ const addTask = async (req, res, next) => {
     await addNewTask(taskData);
     res.status(200).json({
       statusCode: 200,
-      msg: 'task added successfully',
+      message: 'task added successfully',
     });
   } catch (error) {
     next(error);
