@@ -11,7 +11,7 @@ const deletePayment = async (req, res, next) => {
     await deletePaymentQuery(id);
     res.status(200).json({
       statusCode: 200,
-      msg: 'Payment deleted successfully',
+      message: 'Payment deleted successfully',
     });
   } catch (error) {
     next(error);

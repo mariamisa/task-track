@@ -9,6 +9,8 @@ const updateAvatarController = require('./updateAvatar');
 const updateUserInfo = require('./updateUser');
 const updateAttachController = require('./updateAttach');
 const getUsers = require('./getUsers');
+const getUsersById = require('./getUser');
+const deleteUser = require('./deleteUser');
 
 module.exports = {
   signupController,
@@ -22,4 +24,6 @@ module.exports = {
   updateUserInfo,
   updateAttachController,
   getUsers,
+  getUsersById,
+  deleteUser,
 };

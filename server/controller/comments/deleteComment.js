@@ -16,7 +16,7 @@ const deleteComment = async (req, res, next) => {
     await deleteCommentQuery(commentId);
     res.status(200).json({
       statusCode: 200,
-      msg: 'comment deleted successfully',
+      message: 'comment deleted successfully',
     });
   } catch (error) {
     next(error);

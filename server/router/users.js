@@ -11,11 +11,16 @@ const {
   updateUserInfo,
   updateAttachController,
   getUsers,
+  getUsersById,
+  deleteUser,
 } = require('../controller');
 const { userPermission, settingPermission } = require('../middleware/permission');
 
 router.get('/is-auth', isAuthController);
 router.get('/users', userPermission, getUsers);
+router.get('/users/:id', userPermission, getUsersById);
+router.delete('/users/:id', userPermission, deleteUser);
+
 router.post('/users', userPermission, signupValidation, signupController);
 router.patch('/users/:id/permission/:permissionType', userPermission, updatePermissionController);
 
