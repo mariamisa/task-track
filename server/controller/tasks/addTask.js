@@ -27,9 +27,10 @@ const addTask = async (req, res, next) => {
       const urls = await addFilesToCloudenary(req.files.attach);
       taskData.attach = urls;
     }
-    await addNewTask(taskData);
+    const { rows: [taskDataInserted] } = await addNewTask(taskData);
     res.status(200).json({
       statusCode: 200,
+      taskId: taskDataInserted.id,
       message: 'task added successfully',
     });
   } catch (error) {
