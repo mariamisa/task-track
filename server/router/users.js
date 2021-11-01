@@ -24,7 +24,7 @@ router.delete('/users/:id', userPermission, deleteUser);
 router.post('/users', userPermission, signupValidation, signupController);
 router.patch('/users/:id/permission/:permissionType', userPermission, updatePermissionController);
 
-router.get('/users/settings', settingPermission, getUserSetting);
+router.get('/users/:id/settings', settingPermission, getUserSetting);
 router.patch('/users/settings', settingPermission, updateSetting);
 
 router.patch('/users/information/:id', userPermission, updateUserInfo);
