@@ -13,6 +13,7 @@ const isAuthController = async (req, res, next) => {
         country,
         avatar,
         jobTitle,
+        attach,
         user_permission: userPermission,
         task_permission: taskPermission,
         visit_permission: visitPermission,
@@ -37,6 +38,7 @@ const isAuthController = async (req, res, next) => {
         settingPermission,
         paymentPermission,
         commentPermission,
+        attach,
       },
     });
   } catch (error) {
