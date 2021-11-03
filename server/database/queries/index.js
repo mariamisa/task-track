@@ -56,6 +56,7 @@ const {
   updateComment,
   deleteComment,
   getCommentById,
+  getComments,
 } = require('./comments');
 const {
   addSettingQuery,
@@ -113,4 +114,5 @@ module.exports = {
   getAllUsersTask,
   deleteUserById,
   getTaskById,
+  getComments,
 };

@@ -44,7 +44,7 @@ const {
 } = require('./payments');
 
 const {
-  getTaskComments, addComment, updateComment, deleteComment,
+  getTaskComments, addComment, updateComment, deleteComment, getAllComments,
 } = require('./comments');
 
 module.exports = {
@@ -91,4 +91,5 @@ module.exports = {
   getUsersById,
   deleteUser,
   getTask,
+  getAllComments,
 };
