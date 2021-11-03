@@ -28,7 +28,7 @@ CREATE TABLE tasks (
     completed boolean DEFAULT 'false',
     check(visibility in ('false', 'true')),
     check(completed in ('false', 'true')),
-    check(type in ('normal', 'settion', 'other'))
+    check(type in ('normal', 'session', 'other'))
 );
 CREATE TABLE comments(
     id SERIAL PRIMARY KEY,
