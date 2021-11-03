@@ -6,7 +6,7 @@ const updateTask = async (req, res, next) => {
     const { edit } = req.permission;
     const { id } = req.params;
     const {
-      name, type, date, deadline, visibility,
+      name, type, date, deadline, visibility, completed,
     } = req.body;
 
     if (!edit) {
@@ -19,6 +19,7 @@ const updateTask = async (req, res, next) => {
       date,
       deadline,
       visibility,
+      completed,
     });
 
     res.status(200).json({

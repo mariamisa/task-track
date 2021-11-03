@@ -25,7 +25,9 @@ CREATE TABLE tasks (
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deadline TIMESTAMP NOT NULL,
     visibility boolean DEFAULT 'true',
+    completed boolean DEFAULT 'false',
     check(visibility in ('false', 'true')),
+    check(completed in ('false', 'true')),
     check(type in ('normal', 'settion', 'other'))
 );
 CREATE TABLE comments(
